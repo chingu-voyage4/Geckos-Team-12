@@ -6,4 +6,10 @@ Voyage-4
 
 # Team Members
 
+
 * Yassine aka JazyLabs
+
+Xarri aka ai
+
+Laura Ilona
+
