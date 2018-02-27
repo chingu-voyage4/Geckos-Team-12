@@ -6,4 +6,4 @@ Voyage-4
 
 # Team Members
 
-Yassine aka JazyLabs
+* Yassine aka JazyLabs
