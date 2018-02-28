@@ -9,7 +9,7 @@ Voyage-4
 
 * Yassine aka JazyLabs
 
-Xarri aka ai
+* Xarri aka ai
 
-Laura Ilona
+* [Laura Ilona](https://github.com/laurailona)
 
