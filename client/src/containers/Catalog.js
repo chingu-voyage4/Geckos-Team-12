@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCrops } from "../redux/Crops";
 
-class Catalog extends Component {
+export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
