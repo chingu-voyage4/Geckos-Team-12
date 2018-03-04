@@ -1,9 +1,44 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getCrops } from "../redux/Crops";
 
 class Catalog extends Component {
+  componentWillMount() {
+    this.props.getCrops();
+  }
+  renderCrops() {}
+
   render() {
-    return <div>Catalog page</div>;
+    const { crops, loading } = this.props;
+    return (
+      <div>
+        <h1>Catalog page</h1>
+        <div>
+          {loading && <p>Crops Loading...</p>}
+          {!loading && crops.length > 0
+            ? crops.map(crop => (
+                <div key={crop.id}>
+                  <h3>{crop.name}</h3>
+                  <p>{crop.category}</p>
+                </div>
+              ))
+            : !loading && <p>No crops found...Come back next srping</p>}
+        </div>
+      </div>
+    );
   }
 }
 
-export default Catalog;
+const mapStateToProps = state => {
+  return {
+    crops: state.crops.crops,
+    loading: state.crops.loading,
+    auth: state.auth.authenticated
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  getCrops: () => dispatch(getCrops())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Catalog);

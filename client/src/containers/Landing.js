@@ -1,9 +1,21 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 class Landing extends Component {
   render() {
-    return <div>Landing page</div>;
+    const { auth } = this.props;
+    return (
+      <div>
+        {" "}
+        {auth && <p>Welcome Grower</p>} {!auth && <p>Welcome futur Grower</p>}
+      </div>
+    );
   }
 }
 
-export default Landing;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth.authenticated
+  };
+};
+
+export default connect(mapStateToProps, null)(Landing);
