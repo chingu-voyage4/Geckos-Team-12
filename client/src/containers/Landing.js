@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-class Landing extends Component {
+
+export class Landing extends Component {
   render() {
     const { auth } = this.props;
     return (
