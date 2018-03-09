@@ -11,13 +11,13 @@ const AUTH_LOGOUT = "auth/LOGOUT";
 
 //action creators
 
-const signInUser = reqData => dispatch => {
+export const signInUser = reqData => dispatch => {
   dispatch({ type: AUTH_LOADING });
 
   setTimeout(() => dispatch({ type: AUTH_SUCCESS, data: mock_token }), 1000);
   // dispatch({ type: AUTH_FAILED, data: err });
 };
-const signOutUser = () => dispatch => {
+export const signOutUser = () => dispatch => {
   dispatch({ type: AUTH_LOGOUT });
 };
 
