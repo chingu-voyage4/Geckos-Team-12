@@ -1,0 +1,117 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* header section styles */
+.headbg{
+  margin-top: 0;
+  padding: 0;
+  background: url("https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=531319c82648653fd61091ddd2141768&auto=format&fit=crop&w=750&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  widht: 100vw;
+  height: 40vh;
+}
+
+.headText{
+  -webkit-text-fill-color: white; 
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
+  line-height: 30vh;
+  font-size: 3em;
+}
+
+/* description & info section styles */
+.infoSection{
+  margin: 20px;
+}
+.infoDesc{
+  display: block;
+  text-align:justify;
+  width:60vw; 
+  margin: 0 auto;
+}
+.infoWrapper{
+  display: grid;
+  grid-template-columns:
+  50% 50%;
+  /* grid-template-rows: 30% 30%; */
+  margin:0 auto; 
+  margin-top: 30px;
+  width: 60vw;
+  min-height: 150px;
+}
+.infoItems{
+  margin: 10px;
+  border: 2px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
