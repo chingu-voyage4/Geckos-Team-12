@@ -6,20 +6,13 @@ import '../styles/Crop.css';
 // let heroImg = "https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=531319c82648653fd61091ddd2141768&auto=format&fit=crop&w=750&q=80";
 
 // adding the crop header ( background pic / title )
-class CropHead extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: 'Tomato'
-    }
-  }
-  render(){
+ function CropHead(props){ 
     return (
       <div className='headbg'>
-        <h1 className='headText'>{this.state.title} </h1>
+        <h1 className='headText'>{props.title} </h1>
       </div>
-    )
-  }
+    );
+  
 }
 
 // adding description and bullet section
@@ -63,7 +56,7 @@ class SingleCrop extends Component {
   render(){
     return(
       <div>
-       <CropHead/>
+       <CropHead title='tomato'/>
        <CropInfo/>
        {/* <HowTo/> */}
       </div>
