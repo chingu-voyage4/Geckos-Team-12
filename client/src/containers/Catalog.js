@@ -6,7 +6,7 @@ export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
-goCrop= () => this.props.history.push("/singlecrop");
+// goCrop= () => this.props.history.push("/singlecrop");
 
   renderCrops() {}
 
