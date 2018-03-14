@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import configureStore from "./redux/configureStore";
 import Landing from "./containers/Landing";
 import Navbar from "./containers/Navbar";
+import Footer from "./components/Footer";
 import Catalog from "./containers/Catalog";
 import User from "./containers/User";
 
@@ -19,6 +20,7 @@ const App = () => (
         <Route component={Catalog} path="/catalog" />
         <Route component={User} patch="/user" />
       </Switch>
+      <Footer />
     </div>
   </Router>
 );
