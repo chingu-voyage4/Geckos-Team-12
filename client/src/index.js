@@ -8,7 +8,7 @@ import Navbar from "./containers/Navbar";
 import Footer from "./components/Footer";
 import Catalog from "./containers/Catalog";
 import User from "./containers/User";
-
+import "./assets/css/index.css";
 const store = configureStore();
 
 const App = () => (
