@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "simple-seed",
   "version": "1.0.0",
   "description": "app server",
   "main": "index.js",

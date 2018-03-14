@@ -14,28 +14,18 @@ const CropSchema = new Schema(
       required: true, 
       max: 100
   },
-    timestamp: {
-      type: Date, 
-      default: Date.now
-    },
-  }
-);
+    image: {
+      type: String, 
+    }, 
+    timestamps: true});
 
-// Sets the timestamp parameter equal to the current time
+// Sets the timestamp createdAt parameter equal to the current time
 CropSchema.pre('save', next => {
   now = new Date();
-  if(!this.timestamp) {
-    this.timestamp = now;
+  if(!this.createdAt) {
+    this.createdAt = now;
   }
   next();
-});
-
-
-// Virtual for crop's URL
-CropSchema
-.virtual('url')
-.get(function () {
-  return '/crop' + this._id;
 });
 
 // Export crop schema model for use elsewhere
