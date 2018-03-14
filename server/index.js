@@ -33,7 +33,7 @@ app.get("/ping", (req, res) => res.send("pong"));
 
 
 //Server Setup
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5000;
 
 app.listen(port);
 console.log("Server listening on Port", port);
