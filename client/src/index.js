@@ -13,7 +13,7 @@ const store = configureStore();
 
 const App = () => (
   <Router>
-    <div>
+    <div className="app-wrapper">
       <Navbar />
       <Switch>
         <Route component={Landing} exact path="/" />
