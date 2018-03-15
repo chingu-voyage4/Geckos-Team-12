@@ -9,6 +9,20 @@ export class Catalog extends Component {
   }
   renderCrops() {}
 
+ 
+ function displayCrop(){
+
+  for (var i = 0; i < mock_crops.length; i++){
+if (crop.name === input){
+
+  
+  }
+
+
+
+}
+
+ }
   render() {
     const { crops, loading } = this.props;
     return (
@@ -16,11 +30,13 @@ export class Catalog extends Component {
 
         <nav>   
           <h3 className="logo">Name</h3>
-          <a href ="#">My Garden</a>
+          <a href ="index.html">My Garden</a>
         </nav>   
         <section className="choose">
-        <h1>Choose your crop</h1>
-        <input type="text"/>
+          <h1>Choose your crop</h1>
+          <div className="crop-input">
+            <input type="text" oninput={this.displayCrop}/>
+          </div>
       </section>
 
 
@@ -34,7 +50,7 @@ export class Catalog extends Component {
             ? crops.map(crop => (
                 <div key={crop.id}>
                   <div className="crop-data">
-                    <img src={crop.url}/>
+                    <img alt="test"src={crop.url}/>
                     <h3>{crop.name}</h3>
                     <p>{crop.category}</p>
                   </div>
@@ -45,7 +61,7 @@ export class Catalog extends Component {
       </div>
     );
   }
-}
+
 
 const mapStateToProps = state => {
   return {
@@ -59,9 +75,19 @@ const mapDispatchToProps = dispatch => ({
   getCrops: () => dispatch(getCrops())
 });
 
-// function changeImage(){
-//  let 
-// }
+
+
+
+
+
+
+
+
+
+
+// changeImage(){
+// //  let 
+// // }
 export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
 
 // var changeImage = () => {
