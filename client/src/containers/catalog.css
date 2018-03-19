@@ -59,7 +59,7 @@ img{
 display: flex;
 text-align: center;
 justify-content: center;
-/* width: 100vw; */
+/* display: none; */
 margin: 3rem;
 
 }
