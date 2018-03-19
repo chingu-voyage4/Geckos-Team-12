@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const crop = require('./app/routes/crop');
+const crop = require('./routes/cropRouter');
 
 if (process.env.NODE_ENV !== "production") {
   // Development environment -->
@@ -33,10 +33,10 @@ app.use(bodyParser.json({ type: "*/*" }));
 
 app.get("/ping", (req, res) => res.send("pong"));
 
-app.route("/crop")
+app.route("/cropRouter")
     .get(crop.getCrops)
     .post(crop.postCrop);
-app.route("/crop/:id")
+app.route("/cropRouter/:id")
     .get(crop.getCrop)
     .delete(crop.deleteCrop)
     .put(crop.updateCrop);

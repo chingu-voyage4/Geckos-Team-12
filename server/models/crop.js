@@ -17,7 +17,9 @@ const CropSchema = new Schema(
     image: {
       type: String, 
     }, 
-    timestamps: true});
+    createdAt: { type: Date, default: Date.now },    
+  }, 
+);
 
 // Sets the timestamp createdAt parameter equal to the current time
 CropSchema.pre('save', next => {
