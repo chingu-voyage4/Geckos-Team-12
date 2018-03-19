@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+const crop = require('./app/routes/crop');
+
 if (process.env.NODE_ENV !== "production") {
   // Development environment -->
   require("dotenv").config();
@@ -31,9 +33,19 @@ app.use(bodyParser.json({ type: "*/*" }));
 
 app.get("/ping", (req, res) => res.send("pong"));
 
+app.route("/crop")
+    .get(crop.getCrops)
+    .post(crop.postCrop);
+app.route("/crop/:id")
+    .get(crop.getCrop)
+    .delete(crop.deleteCrop)
+    .put(crop.updateCrop);
+
 
 //Server Setup
 const port = process.env.PORT || 5000;
 
 app.listen(port);
 console.log("Server listening on Port", port);
+
+module.exports = app; // for testing
