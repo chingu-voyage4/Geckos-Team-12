@@ -52,9 +52,7 @@ export class Landing extends Component {
             width="560"
             height="315"
             src="https://www.youtube.com/embed/9IB1V9H0K6s"
-            frameborder="0"
             allow="autoplay; encrypted-media"
-            allowfullscreen
           />
         </div>
         <div className="s3">

@@ -5,10 +5,14 @@
 }
 
 body {
-  font-family: montserrat, pacifico;
+  font-family: montserrat;
+  margin: 0;
 }
 .nav-bar {
   grid-area: "navbar";
+  display: grid;
+  grid-template-columns: 7fr 3fr 2fr;
+  border-bottom: solid 2px #5caa0a;
 }
 
 .landing {
@@ -25,7 +29,6 @@ body {
 }
 .app-wrapper {
   display: grid;
-  grid-gap: 2px;
   grid-template-areas:
     "navbar"
     "landing"

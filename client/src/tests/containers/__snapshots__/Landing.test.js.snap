@@ -84,8 +84,6 @@ exports[`Landing should render 1`] = `
     </h1>
     <iframe
       allow="autoplay; encrypted-media"
-      allowfullscreen={true}
-      frameborder="0"
       height="315"
       src="https://www.youtube.com/embed/9IB1V9H0K6s"
       title="SimpleSeed HowTo"
