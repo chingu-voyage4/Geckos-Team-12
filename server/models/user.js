@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // user schema definition
 const UserSchema = new Schema(
   {
-    first_name: {type: String, required: true, max: 100},
+    user_name: {type: String, required: true, max: 100},
     family_name: {type: String, required: true, max: 100},
     date_of_birth: {type: Date},
     email: {type: String, lowercase: true, required: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
