@@ -7,7 +7,7 @@ export class Navbar extends Component {
   goUser = () => this.props.history.push("/user");
   render() {
     return (
-      <div>
+      <div className="nav-bar">
         <div>
           <button onClick={this.goHome}>Home</button>
           <button onClick={this.goCatalog}>Catalog</button>
