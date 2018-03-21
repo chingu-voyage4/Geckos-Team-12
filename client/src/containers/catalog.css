@@ -24,7 +24,12 @@
   }
   
 
-
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
   .choose{
  
@@ -38,6 +43,7 @@
 img{
     width:10rem;
     height:10rem;
+    border-radius: 2rem;
     
 
 }
@@ -45,9 +51,10 @@ img{
 .crop-container{
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-grid-gap: .5rem;
+grid-gap: 1rem;
 /* display: none; */
 margin: 3rem;
+text-align: center;
 
 }
 
@@ -61,6 +68,6 @@ input{
     height:2.5rem;
     outline: none;
     border: 0;
-    width: 35%;
+    width: 100%;
     margin: 1rem;
     } 

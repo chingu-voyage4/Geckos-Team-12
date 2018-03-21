@@ -19,7 +19,7 @@ export class Catalog extends Component {
   render() {
     const { crops, loading } = this.props;
     return (
-      <div>
+      <div className="container">
 
           
         <section className="choose">
