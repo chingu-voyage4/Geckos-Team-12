@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCrops } from "../redux/Crops";
-import "./catalog.css";
+import "../assets/css/catalog.css";
 
 export class Catalog extends Component {
   componentWillMount() {
