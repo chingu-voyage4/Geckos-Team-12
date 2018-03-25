@@ -7,8 +7,10 @@ import Landing from "./containers/Landing";
 import Navbar from "./containers/Navbar";
 import Footer from "./components/Footer";
 import Catalog from "./containers/Catalog";
-import User from "./containers/User";
+import MyGarden from "./containers/MyGarden";
+import Profile from "./containers/Profile";
 import SingleCrop from "./containers/Crop.js";
+import "./assets/css/index.css";
 const store = configureStore();
 
 const App = () => (
@@ -18,7 +20,8 @@ const App = () => (
       <Switch>
         <Route component={Landing} exact path="/" />
         <Route component={Catalog} path="/catalog" />
-        <Route component={User} patch="/user" />
+        <Route component={MyGarden} path="/mygarden" />
+        <Route component={Profile} patch="/user" />
         <Route component={SingleCrop} exact path="/singlecrop" />
       </Switch>
       <Footer />
