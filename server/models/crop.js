@@ -27,7 +27,9 @@ const CropSchema = new Schema(
     climate: {
       type: String, 
     },    
-    timestamps: true});
+    createdAt: Date,
+    updatedAt: Date
+});
 
 // Sets the timestamp createdAt parameter equal to the current time
 CropSchema.pre('save', next => {

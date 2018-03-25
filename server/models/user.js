@@ -13,13 +13,13 @@ const UserSchema = new Schema(
       required: true, 
       max: 20
     },
-    growingCrops: {
-      type: String
-    },
     score: {
       type: String
     }, 
-    {timestamps: true});
+    createdAt: Date,
+    updatedAt: Date
+});
+
 
 // Sets the timestamp createdAt parameter equal to the current time
 CropSchema.pre('save', next => {
