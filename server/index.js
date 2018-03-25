@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const app = express();
 
 if (process.env.NODE_ENV !== "production") {
@@ -14,12 +13,12 @@ if (process.env.DEBUG === "server") {
 }
 
 //Set up mongoose connection
-const mongoose = require('mongoose');
-const mongoDB = 'mongodb://any:team@ds259268.mlab.com:59268/farm-app';
+const mongoose = require("mongoose");
+const mongoDB = "mongodb://any:team@ds259268.mlab.com:59268/farm-app";
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // CORS middleware
 var cors = require("cors");
@@ -30,7 +29,6 @@ app.use(cors());
 app.use(bodyParser.json({ type: "*/*" }));
 
 app.get("/ping", (req, res) => res.send("pong"));
-
 
 //Server Setup
 const port = process.env.PORT || 5000;
