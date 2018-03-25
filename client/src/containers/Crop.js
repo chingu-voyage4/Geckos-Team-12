@@ -35,16 +35,6 @@ class CropInfo extends Component {
   }
 }
 
-// addingl crop How to section
-class HowTo extends Component {
-  render() {
-    return (
-      <div>
-        <h2>How to grow {this.props.title}</h2>
-      </div>
-    );
-  }
-}
 // Final render of Crop page
 class Crop extends Component {
   componentWillMount() {
