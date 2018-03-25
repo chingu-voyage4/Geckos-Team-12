@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const Task = new Schema({
   name: {
     type: String,
-    required: "Please enter a crop name"
+    required: "Please enter a task name"
   },
   category: {
     type: String,
