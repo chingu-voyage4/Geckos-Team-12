@@ -7,9 +7,13 @@ const Task = new Schema({
     type: String,
     required: "Please enter a task name"
   },
-  category: {
-    type: String,
+  score: {
+    type: Number,
     required: true
+  },
+  steps: [{ title: String, description: String, status: Boolean }],
+  category: {
+    type: String
   },
   short_desc: {
     type: String
@@ -17,7 +21,7 @@ const Task = new Schema({
   difficulty_level: {
     type: String
   },
-  steps: [{ title: String, description: String, status: Boolean }],
+
   crop_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Crop"
