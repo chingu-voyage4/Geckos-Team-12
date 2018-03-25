@@ -5,22 +5,23 @@ import { Provider } from "react-redux";
 import configureStore from "./redux/configureStore";
 import Landing from "./containers/Landing";
 import Navbar from "./containers/Navbar";
+import Footer from "./components/Footer";
 import Catalog from "./containers/Catalog";
 import User from "./containers/User";
-import SingleCrop from  "./containers/Crop.js"
+import SingleCrop from "./containers/Crop.js";
 const store = configureStore();
 
 const App = () => (
   <Router>
-    <div>
+    <div className="app-wrapper">
       <Navbar />
       <Switch>
         <Route component={Landing} exact path="/" />
         <Route component={Catalog} path="/catalog" />
-        <Route component={SingleCrop} exact path="/singlecrop" />
-
         <Route component={User} patch="/user" />
+        <Route component={SingleCrop} exact path="/singlecrop" />
       </Switch>
+      <Footer />
     </div>
   </Router>
 );

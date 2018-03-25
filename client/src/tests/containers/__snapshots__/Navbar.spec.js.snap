@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar should render 1`] = `
+<div
+  className="nav-bar"
+>
+  <div
+    className="nav-bar-brand"
+    onClick={[Function]}
+  >
+    SimpleSeed
+  </div>
+  <div
+    className="nav-bar-menu"
+  >
+    <Link
+      className=""
+      replace={false}
+      to="/Catalog"
+    >
+      Catalog
+    </Link>
+    <Link
+      className=""
+      replace={false}
+      to="/mygarden"
+    >
+      MyGarden
+    </Link>
+  </div>
+  <div
+    className="nav-bar-user"
+  >
+    <div
+      className="signin"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Sign In
+      </button>
+      <Link
+        replace={false}
+        to="/signup"
+      >
+        SignUp
+      </Link>
+    </div>
+  </div>
+</div>
+`;
