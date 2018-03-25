@@ -1,9 +1,9 @@
 /* global shallow, toJson */
 import React from "react";
-import { Landing } from "../../containers/Landing";
+import { Navbar } from "../../containers/Navbar";
 
 const setup = props => {
-  const wrappedComponent = shallow(<Landing {...props} />);
+  const wrappedComponent = shallow(<Navbar {...props} />);
 
   return {
     props,
@@ -11,7 +11,7 @@ const setup = props => {
   };
 };
 
-describe("Landing", () => {
+describe("Navbar", () => {
   it("should render", () => {
     const props = {};
     const { wrappedComponent } = setup(props);

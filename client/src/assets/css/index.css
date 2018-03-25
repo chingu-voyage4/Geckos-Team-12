@@ -1,0 +1,36 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: montserrat;
+  margin: 0;
+}
+.nav-bar {
+  grid-area: "navbar";
+  display: grid;
+  grid-template-columns: 7fr 3fr 2fr;
+  border-bottom: solid 2px #5caa0a;
+}
+
+.landing {
+  grid-area: "landing";
+  display: grid;
+  grid-auto-rows: minmax(480px, auto);
+  grid-row-gap: 20px;
+}
+.footer {
+  grid-area: "footer";
+  text-align: center;
+  margin-top: 20px;
+  height: 60px;
+}
+.app-wrapper {
+  display: grid;
+  grid-template-areas:
+    "navbar"
+    "landing"
+    "footer";
+}

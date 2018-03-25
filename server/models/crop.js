@@ -1,34 +1,44 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // crop schema definition
-const CropSchema = new Schema(
-  {
-    name: {
-      type: String, 
-      required: 'Please enter a crop name', 
-      max: 100
+const CropSchema = new Schema({
+  name: {
+    type: String,
+    required: "Please enter a crop name"
   },
-    category: {
-      type: String, 
-      required: true, 
-      max: 100
+  category: {
+    type: String,
+    required: true
   },
-    image: {
-      type: String, 
-    }, 
-    createdAt: { type: Date, default: Date.now },    
-  }, 
-);
+  image_url: {
+    type: String
+  },
+
+  short_desc: {
+    type: String
+  },
+  difficulty_level: {
+    type: String
+  },
+  best_season: {
+    type: String
+  },
+  climate: {
+    type: String
+  },
+  createdAt: Date,
+  updatedAt: Date
+});
 
 // Sets the timestamp createdAt parameter equal to the current time
-CropSchema.pre('save', next => {
+CropSchema.pre("save", next => {
   now = new Date();
-  if(!this.createdAt) {
+  if (!this.createdAt) {
     this.createdAt = now;
   }
   next();
 });
 
 // Export crop schema model for use elsewhere
-module.exports = mongoose.model('Crop', CropSchema);
+module.exports = mongoose.model("Crop", CropSchema);
