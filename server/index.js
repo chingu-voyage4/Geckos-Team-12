@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+const crop = require("./routes/crops");
+
 if (process.env.NODE_ENV !== "production") {
   // Development environment -->
   require("dotenv").config();
@@ -33,10 +35,13 @@ app.use(bodyParser.json({ type: "*/*" }));
 
 app.get("/ping", (req, res) => res.send("pong"));
 
+app.use("/crops", crop);
+
 //Server Setup
 const port = process.env.PORT || 5000;
 
 app.listen(port);
+
 console.log("Server listening on Port", port);
 
 module.exports.app = app;
