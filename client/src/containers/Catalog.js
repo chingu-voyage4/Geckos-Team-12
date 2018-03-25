@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getCrops } from "../redux/Crops";
 
 export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
+  // goCrop= () => this.props.history.push("/singlecrop");
+
   renderCrops() {}
 
   render() {
@@ -18,7 +21,7 @@ export class Catalog extends Component {
           {!loading && crops.length > 0
             ? crops.map(crop => (
                 <div key={crop.id}>
-                  <h3>{crop.name}</h3>
+                  <Link to={`/crops/${crop.name}`}>{crop.name}</Link>
                   <p>{crop.category}</p>
                 </div>
               ))
