@@ -5,10 +5,13 @@ const app = express();
 if (process.env.NODE_ENV !== "production") {
   // Development environment -->
   require("dotenv").config();
-  if (!process.env.DEBUG) process.env.DEBUG = "server";
+  if (!process.env.DEBUG) {
+    process.env.DEBUG = "server";
+  }
 } // <-- Development environment
 if (process.env.DEBUG === "server") {
   const morgan = require("morgan");
+
   app.use(morgan("tiny"));
 }
 
@@ -21,7 +24,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // CORS middleware
-var cors = require("cors");
+let cors = require("cors");
 
 app.use(cors());
 
@@ -35,3 +38,5 @@ const port = process.env.PORT || 5000;
 
 app.listen(port);
 console.log("Server listening on Port", port);
+
+module.exports.app = app;
