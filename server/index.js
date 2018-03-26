@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const crop = require("./routes/crops");
+const task = require("./routes/tasks");
 
 if (process.env.NODE_ENV !== "production") {
   // Development environment -->
@@ -36,6 +37,7 @@ app.use(bodyParser.json({ type: "*/*" }));
 app.get("/ping", (req, res) => res.send("pong"));
 
 app.use("/crops", crop);
+app.use("/tasks", task);
 
 //Server Setup
 const port = process.env.PORT || 5000;
