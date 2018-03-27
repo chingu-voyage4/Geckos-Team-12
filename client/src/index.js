@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Catalog from "./containers/Catalog";
 import MyGarden from "./containers/MyGarden";
 import Profile from "./containers/Profile";
+import Crop from "./containers/Crop";
 import "./assets/css/index.css";
 const store = configureStore();
 
@@ -19,8 +20,9 @@ const App = () => (
       <Switch>
         <Route component={Landing} exact path="/" />
         <Route component={Catalog} path="/catalog" />
-        <Route component={MyGarden} path="/MyGarden" />
-        <Route component={Profile} patch="/profile" />
+        <Route component={Crop} path="/crops/:name" />
+        <Route component={MyGarden} path="/mygarden" />
+        <Route component={Profile} patch="/user" />
       </Switch>
       <Footer />
     </div>
