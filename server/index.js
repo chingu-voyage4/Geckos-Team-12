@@ -4,17 +4,17 @@ const app = express();
 
 const crop = require("./routes/crops");
 const task = require("./routes/tasks");
+const badge = require("./routes/badges");
 
 if (process.env.NODE_ENV !== "production") {
-  // Development environment -->
+  // Development environment
   require("dotenv").config();
   if (!process.env.DEBUG) {
     process.env.DEBUG = "server";
   }
-} // <-- Development environment
+}
 if (process.env.DEBUG === "server") {
   const morgan = require("morgan");
-
   app.use(morgan("tiny"));
 }
 
@@ -38,6 +38,7 @@ app.get("/ping", (req, res) => res.send("pong"));
 
 app.use("/crops", crop);
 app.use("/tasks", task);
+app.use("/badges", badge);
 
 //Server Setup
 const port = process.env.PORT || 5000;
