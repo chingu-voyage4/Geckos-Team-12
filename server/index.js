@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-
+const seedDB = require("./utils/seed").seedDB;
 const crop = require("./routes/crops");
 const task = require("./routes/tasks");
 const badge = require("./routes/badges");
@@ -40,6 +40,8 @@ app.use("/crops", crop);
 app.use("/tasks", task);
 app.use("/badges", badge);
 
+//DB seedlings
+seedDB();
 //Server Setup
 const port = process.env.PORT || 5000;
 

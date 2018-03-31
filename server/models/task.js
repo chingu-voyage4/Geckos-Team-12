@@ -21,7 +21,6 @@ const Task = new Schema({
   difficulty_level: {
     type: String
   },
-
   crop_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Crop"
