@@ -68,7 +68,7 @@ describe("BADGES", () => {
   describe("#DELETE BADGES", () => {
     it("Successfully deletes a badge", done => {
       request(app)
-        .delete(`/badges/test_badge1`)
+        .delete(`/badges/${badge_id}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.message === "Badge successfully deleted!");
