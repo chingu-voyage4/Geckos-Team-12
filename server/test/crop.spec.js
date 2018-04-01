@@ -5,7 +5,23 @@ let { app } = require("../index");
 let request = require("supertest");
 let assert = require("assert");
 let crop_id = "";
+let user = {
+  username: "simpleseed_api_tester@seed.com",
+  password: "simpleseed_api_tester"
+};
+let token = "";
 describe("CROPS", () => {
+  before(done => {
+    request(app)
+      .post(`/auth/signin`)
+      .send(user)
+      .expect(res => {
+        assert(res.status === 200);
+        assert(res.body.token);
+        token = res.body.token;
+      })
+      .end(done);
+  });
   //┌——————————————————————————————————————————————————┐
   //│ ↓ CROPS                                        ↓ │
   //└——————————————————————————————————————————————————┘
@@ -22,6 +38,7 @@ describe("CROPS", () => {
       };
       request(app)
         .post(`/crops`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           assert(res.status === 200);
@@ -36,6 +53,7 @@ describe("CROPS", () => {
       };
       request(app)
         .post(`/crops/${crop_id}`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           console.log(res.body);
@@ -71,6 +89,7 @@ describe("CROPS", () => {
     it("Successfully deletes a crop", done => {
       request(app)
         .delete(`/crops/${crop_id}`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.message === "Crop successfully deleted!");

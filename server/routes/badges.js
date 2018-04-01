@@ -1,8 +1,9 @@
 "use strict";
-let express = require("express");
-let router = express.Router();
-const mongoose = require("mongoose");
-const Badge = require("../models/badge");
+const express = require("express"),
+  router = express.Router(),
+  mongoose = require("mongoose"),
+  Badge = require("../models/badge");
+
 // POST action to save a new badge
 router.post("/", (req, res) => {
   // creates a new badge

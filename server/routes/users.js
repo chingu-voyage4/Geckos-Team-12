@@ -1,8 +1,9 @@
 "use strict";
-let express = require("express");
-let router = express.Router();
-const mongoose = require("mongoose");
-const User = require("../models/user");
+const express = require("express"),
+  router = express.Router(),
+  mongoose = require("mongoose"),
+  User = require("../models/user");
+
 // POST action to save a new user
 router.post("/", (req, res) => {
   // creates a new user
@@ -52,8 +53,9 @@ router.get("/:id", (req, res) => {
 });
 
 // DELETE action by id
-router.delete("/:id", (req, res) => {
-  User.remove({ _id: req.params.id }, (err, result) => {
+router.delete("/:username", (req, res) => {
+  console.log(req.headers);
+  User.remove({ username: req.params.username }, (err, result) => {
     res.json({ message: "User successfully deleted!" });
   });
 });

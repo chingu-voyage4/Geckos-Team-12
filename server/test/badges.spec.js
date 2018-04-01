@@ -5,7 +5,23 @@ let { app } = require("../index");
 let request = require("supertest");
 let assert = require("assert");
 let badge_id = "";
+let token = "";
+let user = {
+  username: "simpleseed_api_tester@seed.com",
+  password: "simpleseed_api_tester"
+};
 describe("BADGES", () => {
+  before(done => {
+    request(app)
+      .post(`/auth/signin`)
+      .send(user)
+      .expect(res => {
+        assert(res.status === 200);
+        assert(res.body.token);
+        token = res.body.token;
+      })
+      .end(done);
+  });
   //┌——————————————————————————————————————————————————┐
   //│ ↓ BADGES                                        ↓ │
   //└——————————————————————————————————————————————————┘
@@ -19,6 +35,7 @@ describe("BADGES", () => {
       };
       request(app)
         .post(`/badges`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           console.log(res.body);
@@ -34,6 +51,7 @@ describe("BADGES", () => {
       };
       request(app)
         .post(`/badges/${badge_id}`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           console.log(res.body);
@@ -48,6 +66,7 @@ describe("BADGES", () => {
     it("Successfully fetch all badges", done => {
       request(app)
         .get(`/badges`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(Array.isArray(res.body));
@@ -57,6 +76,7 @@ describe("BADGES", () => {
     it("Successfully fetch one badge", done => {
       request(app)
         .get(`/badges/${badge_id}`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.name === "test_badge1");
@@ -69,6 +89,7 @@ describe("BADGES", () => {
     it("Successfully deletes a badge", done => {
       request(app)
         .delete(`/badges/${badge_id}`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.message === "Badge successfully deleted!");

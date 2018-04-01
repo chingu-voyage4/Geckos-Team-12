@@ -1,10 +1,12 @@
 "use strict";
-let express = require("express");
-let router = express.Router();
-const mongoose = require("mongoose");
-const Crop = require("../models/crop");
+const express = require("express"),
+  router = express.Router(),
+  mongoose = require("mongoose"),
+  Crop = require("../models/crop"),
+  passport = require("passport"),
+  requireAuth = passport.authenticate("jwt", { session: false });
 // POST action to save a new crop
-router.post("/", (req, res) => {
+router.post("/", requireAuth, (req, res) => {
   // creates a new crop
   const newCrop = new Crop(req.body);
   // save it to database
@@ -19,7 +21,7 @@ router.post("/", (req, res) => {
 });
 
 // PUT action by id ('/crop/:id'), to update crop data in database
-router.post("/:id", (req, res) => {
+router.post("/:id", requireAuth, (req, res) => {
   Crop.findOneAndUpdate(
     { _id: req.params.id },
     req.body,
@@ -52,7 +54,7 @@ router.get("/:id", (req, res) => {
 });
 
 // DELETE action by id
-router.delete("/:id", (req, res) => {
+router.delete("/:id", requireAuth, (req, res) => {
   Crop.remove({ _id: req.params.id }, (err, result) => {
     res.json({ message: "Crop successfully deleted!" });
   });

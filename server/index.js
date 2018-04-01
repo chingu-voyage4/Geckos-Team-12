@@ -1,11 +1,13 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const app = express();
-const seedDB = require("./utils/seed").seedDB;
-const crop = require("./routes/crops");
-const task = require("./routes/tasks");
-const badge = require("./routes/badges");
-const user = require("./routes/users");
+const express = require("express"),
+  bodyParser = require("body-parser"),
+  app = express(),
+  seedDB = require("./utils/seed").seedDB,
+  crop = require("./routes/crops"),
+  task = require("./routes/tasks"),
+  badge = require("./routes/badges"),
+  user = require("./routes/users"),
+  auth = require("./routes/auth"),
+  passport = require("passport");
 
 if (process.env.NODE_ENV !== "production") {
   // Development environment
@@ -19,6 +21,8 @@ if (process.env.DEBUG === "server") {
   app.use(morgan("tiny"));
 }
 
+const passportService = require("./utils/passport"),
+  requireAuth = passport.authenticate("jwt", { session: false });
 //Set up mongoose connection
 const mongoose = require("mongoose");
 const mongoDB = "mongodb://any:team@ds259268.mlab.com:59268/farm-app";
@@ -34,13 +38,13 @@ app.use(cors());
 
 // Body parser configuration
 app.use(bodyParser.json({ type: "*/*" }));
-
 app.get("/ping", (req, res) => res.send("pong"));
 
+app.use("/auth", auth);
 app.use("/crops", crop);
-app.use("/tasks", task);
-app.use("/badges", badge);
-app.use("/users", user);
+app.use("/tasks", requireAuth, task);
+app.use("/badges", requireAuth, badge);
+app.use("/users", requireAuth, user);
 
 //DB seedlings
 seedDB();

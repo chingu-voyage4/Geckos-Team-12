@@ -1,8 +1,8 @@
 "use strict";
-let express = require("express");
-let router = express.Router();
-const mongoose = require("mongoose");
-const Task = require("../models/task");
+const express = require("express"),
+  router = express.Router(),
+  mongoose = require("mongoose"),
+  Task = require("../models/task");
 // POST action to save a new task
 router.post("/", (req, res) => {
   // creates a new task
