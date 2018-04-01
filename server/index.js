@@ -5,6 +5,7 @@ const seedDB = require("./utils/seed").seedDB;
 const crop = require("./routes/crops");
 const task = require("./routes/tasks");
 const badge = require("./routes/badges");
+const user = require("./routes/users");
 
 if (process.env.NODE_ENV !== "production") {
   // Development environment
@@ -39,6 +40,7 @@ app.get("/ping", (req, res) => res.send("pong"));
 app.use("/crops", crop);
 app.use("/tasks", task);
 app.use("/badges", badge);
+app.use("/users", user);
 
 //DB seedlings
 seedDB();

@@ -20,14 +20,14 @@ const UserSchema = new Schema({
   score: {
     type: String
   },
-  crops: [{ crop_id: mongoose.Schema.Types.ObjectId, ref: "Crop" }],
-  badges: [{ badge_id: mongoose.Schema.Types.ObjectId, ref: "Badge" }],
+  crops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Crop" }],
+  badges: [{ type: mongoose.Schema.Types.ObjectId, ref: "Badge" }],
   createdAt: Date,
   updatedAt: Date
 });
 
 // Sets the timestamp createdAt parameter equal to the current time
-CropSchema.pre("save", next => {
+UserSchema.pre("save", next => {
   now = new Date();
   if (!this.createdAt) {
     this.createdAt = now;

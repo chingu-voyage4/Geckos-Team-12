@@ -19,9 +19,9 @@ router.post("/", (req, res) => {
 });
 
 // PUT action by id ('/crop/:id'), to update crop data in database
-router.post("/:name", (req, res) => {
+router.post("/:id", (req, res) => {
   Crop.findOneAndUpdate(
-    { name: req.params.name },
+    { _id: req.params.id },
     req.body,
     { upsert: true, new: true },
     (err, crop) => {
@@ -43,8 +43,8 @@ router.get("/", (req, res) => {
 });
 
 // GET crop by id action to retrieve a single crop by its id
-router.get("/:name", (req, res) => {
-  Crop.findOne({ name: req.params.name }, (err, crop) => {
+router.get("/:id", (req, res) => {
+  Crop.findOne({ _id: req.params.id }, (err, crop) => {
     if (err) res.send(err);
     // if no error, retrieve and display crop to client
     res.json(crop);
@@ -52,8 +52,8 @@ router.get("/:name", (req, res) => {
 });
 
 // DELETE action by id
-router.delete("/:name", (req, res) => {
-  Crop.remove({ name: req.params.name }, (err, result) => {
+router.delete("/:id", (req, res) => {
+  Crop.remove({ _id: req.params.id }, (err, result) => {
     res.json({ message: "Crop successfully deleted!" });
   });
 });

@@ -4,76 +4,73 @@
 let { app } = require("../index");
 let request = require("supertest");
 let assert = require("assert");
-let crop_id = "";
-describe("CROPS", () => {
+let user_id = "";
+describe("USERS", () => {
   //┌——————————————————————————————————————————————————┐
-  //│ ↓ CROPS                                        ↓ │
+  //│ ↓ USERS                                        ↓ │
   //└——————————————————————————————————————————————————┘
-  describe("#POST CROPS", () => {
-    it("Successfully create a crop", done => {
+  describe("#POST USERS", () => {
+    it("Successfully create a user", done => {
       const body = {
-        name: "test_crop1",
-        category: "Veggie",
-        image_url: "",
-        short_desc: "Best veggie ever",
-        difficulty_level: "easy",
-        best_season: "spring",
-        climate: "temperate"
+        username: "tester@gmail.com",
+        password: "Password@",
+        role: "user"
       };
       request(app)
-        .post(`/crops`)
+        .post(`/users`)
         .send(body)
         .expect(res => {
           assert(res.status === 200);
-          assert(res.body.message === "Crop successfully added!");
-          crop_id = res.body.crop._id;
+          assert(res.body.message === "User successfully added!");
+          user_id = res.body.user._id;
         })
         .end(done);
     });
-    it("Successfully update a crop", done => {
+    it("Successfully update a user", done => {
       const body = {
-        image_url: "http://test_crop1"
+        score: "100"
       };
       request(app)
-        .post(`/crops/${crop_id}`)
+        .post(`/users/${user_id}`)
         .send(body)
         .expect(res => {
           console.log(res.body);
           assert(res.status === 200);
-          assert(res.body.message === "Crop successfully updated!");
-          assert(res.body.crop.image_url === "http://test_crop1");
+          assert(res.body.message === "User successfully updated!");
+          assert(res.body.user.score === "100");
         })
         .end(done);
     });
   });
-  describe("#GET CROPS", () => {
-    it("Successfully fetch all crops", done => {
+  describe("#GET USERS", () => {
+    it("Successfully fetch all users", done => {
       request(app)
-        .get(`/crops`)
+        .get(`/users`)
         .expect(res => {
+          console.log("get res:", res.body);
           assert(res.status === 200);
           assert(Array.isArray(res.body));
         })
         .end(done);
     });
-    it("Successfully fetch one crop", done => {
+    it("Successfully fetch one user", done => {
       request(app)
-        .get(`/crops/${crop_id}`)
+        .get(`/users/${user_id}`)
         .expect(res => {
           assert(res.status === 200);
-          assert(res.body.name === "test_crop1");
+          assert(res.body.username === "tester@gmail.com");
         })
         .end(done);
     });
   });
 
-  describe("#DELETE CROPS", () => {
-    it("Successfully deletes a crop", done => {
+  describe("#DELETE USERS", () => {
+    it("Successfully deletes a user", done => {
       request(app)
-        .delete(`/crops/${crop_id}`)
+        .delete(`/users/${user_id}`)
         .expect(res => {
           assert(res.status === 200);
-          assert(res.body.message === "Crop successfully deleted!");
+          assert(res.body.message === "User successfully deleted!");
         })
         .end(done);
     });
