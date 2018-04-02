@@ -13,8 +13,8 @@ const Badge = new Schema({
   goal: {
     type: Number
   },
-  image: {
-    type: binData
+  image_url: {
+    type: String
   },
   createdAt: Date
 });
