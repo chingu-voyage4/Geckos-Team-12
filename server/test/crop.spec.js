@@ -4,8 +4,24 @@
 let { app } = require("../index");
 let request = require("supertest");
 let assert = require("assert");
-
+let crop_id = "";
+let user = {
+  username: "simpleseed_api_tester@seed.com",
+  password: "simpleseed_api_tester"
+};
+let token = "";
 describe("CROPS", () => {
+  before(done => {
+    request(app)
+      .post(`/auth/signin`)
+      .send(user)
+      .expect(res => {
+        assert(res.status === 200);
+        assert(res.body.token);
+        token = res.body.token;
+      })
+      .end(done);
+  });
   //┌——————————————————————————————————————————————————┐
   //│ ↓ CROPS                                        ↓ │
   //└——————————————————————————————————————————————————┘
@@ -22,10 +38,12 @@ describe("CROPS", () => {
       };
       request(app)
         .post(`/crops`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.message === "Crop successfully added!");
+          crop_id = res.body.crop._id;
         })
         .end(done);
     });
@@ -34,7 +52,8 @@ describe("CROPS", () => {
         image_url: "http://test_crop1"
       };
       request(app)
-        .post(`/crops/test_crop1`)
+        .post(`/crops/${crop_id}`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           console.log(res.body);
@@ -57,7 +76,7 @@ describe("CROPS", () => {
     });
     it("Successfully fetch one crop", done => {
       request(app)
-        .get(`/crops/test_crop1`)
+        .get(`/crops/${crop_id}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.name === "test_crop1");
@@ -69,7 +88,8 @@ describe("CROPS", () => {
   describe("#DELETE CROPS", () => {
     it("Successfully deletes a crop", done => {
       request(app)
-        .delete(`/crops/test_crop1`)
+        .delete(`/crops/${crop_id}`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.message === "Crop successfully deleted!");

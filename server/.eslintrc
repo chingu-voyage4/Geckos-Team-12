@@ -1,8 +1,7 @@
 {
-    "env": {
-      "node": true,
-      "es6": true
-    },
+"parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
     "ecmaFeatures": {
       "arrowFunctions": true,
       "blockBindings": true,
@@ -25,7 +24,9 @@
       "unicodeCodePointEscapes": true,
       "globalReturn": true
     },
-    "rules": {
-      
-    }
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
   }

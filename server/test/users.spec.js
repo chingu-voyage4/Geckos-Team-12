@@ -4,13 +4,14 @@
 let { app } = require("../index");
 let request = require("supertest");
 let assert = require("assert");
-let badge_id = "";
+let user_id = "";
+let username = "tester@gmail.com";
 let token = "";
 let user = {
   username: "simpleseed_api_tester@seed.com",
   password: "simpleseed_api_tester"
 };
-describe("BADGES", () => {
+describe("USERS", () => {
   before(done => {
     request(app)
       .post(`/auth/signin`)
@@ -23,76 +24,75 @@ describe("BADGES", () => {
       .end(done);
   });
   //┌——————————————————————————————————————————————————┐
-  //│ ↓ BADGES                                        ↓ │
+  //│ ↓ USERS                                        ↓ │
   //└——————————————————————————————————————————————————┘
-  describe("#POST BADGES", () => {
-    it("Successfully create a badge", done => {
+  describe("#POST USERS", () => {
+    it("Successfully create a user", done => {
       const body = {
-        name: "test_badge1",
-        short_desc: "this means you know how to seed",
-        goal: 200,
-        image_url: "jdöioqwjflkjwbvcac"
+        username: "tester@gmail.com",
+        password: "Password@",
+        role: "user"
       };
       request(app)
-        .post(`/badges`)
+        .post(`/users`)
         .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
-          console.log(res.body);
           assert(res.status === 200);
-          assert(res.body.message === "Badge successfully added!");
-          badge_id = res.body.badge._id;
+          assert(res.body.message === "User successfully added!");
+          user_id = res.body.user._id;
         })
         .end(done);
     });
-    it("Successfully update a badge", done => {
+    it("Successfully update a user", done => {
       const body = {
-        short_desc: "You have now learned to seed"
+        score: "100"
       };
       request(app)
-        .post(`/badges/${badge_id}`)
+        .post(`/users/${user_id}`)
         .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           console.log(res.body);
           assert(res.status === 200);
-          assert(res.body.message === "Badge successfully updated!");
-          assert(res.body.badge.short_desc === "You have now learned to seed");
+          assert(res.body.message === "User successfully updated!");
+          assert(res.body.user.score === "100");
         })
         .end(done);
     });
   });
-  describe("#GET BADGES", () => {
-    it("Successfully fetch all badges", done => {
+  describe("#GET USERS", () => {
+    it("Successfully fetch all users", done => {
       request(app)
-        .get(`/badges`)
+        .get(`/users`)
         .set("Authorization", `${token}`)
         .expect(res => {
+          console.log("get res:", res.body);
           assert(res.status === 200);
           assert(Array.isArray(res.body));
         })
         .end(done);
     });
-    it("Successfully fetch one badge", done => {
+    it("Successfully fetch one user", done => {
       request(app)
-        .get(`/badges/${badge_id}`)
+        .get(`/users/${user_id}`)
         .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
-          assert(res.body.name === "test_badge1");
+          assert(res.body.username === "tester@gmail.com");
         })
         .end(done);
     });
   });
 
-  describe("#DELETE BADGES", () => {
-    it("Successfully deletes a badge", done => {
+  describe("#DELETE USERS", () => {
+    it("Successfully deletes a user", done => {
       request(app)
-        .delete(`/badges/${badge_id}`)
+        .delete(`/users/${username}`)
         .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
-          assert(res.body.message === "Badge successfully deleted!");
+          assert(res.body.message === "User successfully deleted!");
         })
         .end(done);
     });

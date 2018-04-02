@@ -6,32 +6,36 @@ let request = require("supertest");
 let assert = require("assert");
 let crop_id = "";
 let task_id = "";
-
+let token = "";
+let crop = {
+  name: "test_crop1",
+  category: "Veggie",
+  image_url: "",
+  short_desc: "Best veggie ever",
+  difficulty_level: "easy",
+  best_season: "spring",
+  climate: "temperate"
+};
+let user = {
+  username: "simpleseed_api_tester@seed.com",
+  password: "simpleseed_api_tester"
+};
 describe("TASKS", () => {
   before(done => {
-    const body = {
-      name: "test_crop1",
-      category: "Veggie",
-      image_url: "",
-      short_desc: "Best veggie ever",
-      difficulty_level: "easy",
-      best_season: "spring",
-      climate: "temperate"
-    };
     request(app)
-      .post("/crops")
-      .send(body)
+      .post(`/auth/signin`)
+      .send(user)
       .expect(res => {
         assert(res.status === 200);
-        assert(res.body.message === "Crop successfully added!");
-        crop_id = res.body.crop._id;
-        console.log(crop_id);
+        assert(res.body.token);
+        token = res.body.token;
       })
       .end(done);
   });
   after(done => {
     request(app)
       .delete(`/crops/test_crop1`)
+      .set("Authorization", `${token}`)
       .expect(res => {
         assert(res.status === 200);
         assert(res.body.message === "Crop successfully deleted!");
@@ -42,6 +46,18 @@ describe("TASKS", () => {
   //│ ↓ TASKS                                        ↓ │
   //└——————————————————————————————————————————————————┘
   describe("#POST TASKS", () => {
+    it("create crop", done => {
+      request(app)
+        .post("/crops")
+        .set("Authorization", `${token}`)
+        .send(crop)
+        .expect(res => {
+          assert(res.status === 200);
+          assert(res.body.message === "Crop successfully added!");
+          crop_id = res.body.crop._id;
+        })
+        .end(done);
+    });
     it("Successfully create a task", done => {
       const body = {
         name: "test_task1",
@@ -57,6 +73,7 @@ describe("TASKS", () => {
       };
       request(app)
         .post(`/tasks`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           assert(res.status === 200);
@@ -80,6 +97,7 @@ describe("TASKS", () => {
       };
       request(app)
         .post(`/tasks`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           assert(res.status === 200);
@@ -93,6 +111,7 @@ describe("TASKS", () => {
       };
       request(app)
         .post(`/tasks/${task_id}`)
+        .set("Authorization", `${token}`)
         .send(body)
         .expect(res => {
           assert(res.status === 200);
@@ -106,6 +125,7 @@ describe("TASKS", () => {
     it("Successfully fetch all tasks", done => {
       request(app)
         .get(`/tasks`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(Array.isArray(res.body));
@@ -115,6 +135,7 @@ describe("TASKS", () => {
     it("Successfully fetch one task", done => {
       request(app)
         .get(`/tasks/${task_id}`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
         })
@@ -123,6 +144,7 @@ describe("TASKS", () => {
     it("Successfully fetch all tasks with same crop_id", done => {
       request(app)
         .get(`/tasks/crop/${crop_id}`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
         })
@@ -134,6 +156,7 @@ describe("TASKS", () => {
     it("Successfully deletes a task", done => {
       request(app)
         .delete(`/tasks/test_task1`)
+        .set("Authorization", `${token}`)
         .expect(res => {
           assert(res.status === 200);
           assert(res.body.message === "Task successfully deleted!");
