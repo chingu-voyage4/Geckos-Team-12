@@ -6,10 +6,12 @@ import thunk from "redux-thunk";
 
 import crops from "./Crops";
 import auth from "./Auth";
+import crop from "./Crop";
 
 const reducer = combineReducers({
   auth,
-  crops
+  crops,
+  crop
 });
 
 const rootReducer = (state, action) => {

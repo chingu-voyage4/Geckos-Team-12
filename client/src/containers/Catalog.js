@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getCrops } from "../redux/Crops";
 import "../assets/css/catalog.css";
 
@@ -7,6 +8,8 @@ export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
+  // goCrop= () => this.props.history.push("/singlecrop");
+
   renderCrops() {}
 // function displayCrops() {
 //   for var i = 0; i< mock_crops.length; i++{
@@ -38,9 +41,9 @@ export class Catalog extends Component {
             ? crops.map(crop => (
                 <div key={crop.id}>
                   <div className="crop-data">
-                    <img alt=""src={crop.url}/>
+                    <Link to={`/crops/${crop.name}`}><img alt=""src={crop.url}/>
                     <h3>{crop.name}</h3>
-                    <p>{crop.category}</p>
+                    <p>{crop.category}</p></Link>
                   </div>
                 </div>
               ))
