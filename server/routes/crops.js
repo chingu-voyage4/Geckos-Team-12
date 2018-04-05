@@ -1,10 +1,12 @@
 "use strict";
-let express = require("express");
-let router = express.Router();
-const mongoose = require("mongoose");
-const Crop = require("../models/crop");
+const express = require("express"),
+  router = express.Router(),
+  mongoose = require("mongoose"),
+  Crop = require("../models/crop"),
+  passport = require("passport"),
+  requireAuth = passport.authenticate("jwt", { session: false });
 // POST action to save a new crop
-router.post("/", (req, res) => {
+router.post("/", requireAuth, (req, res) => {
   // creates a new crop
   const newCrop = new Crop(req.body);
   // save it to database
@@ -19,9 +21,9 @@ router.post("/", (req, res) => {
 });
 
 // PUT action by id ('/crop/:id'), to update crop data in database
-router.post("/:name", (req, res) => {
+router.post("/:id", requireAuth, (req, res) => {
   Crop.findOneAndUpdate(
-    { name: req.params.name },
+    { _id: req.params.id },
     req.body,
     { upsert: true, new: true },
     (err, crop) => {
@@ -43,8 +45,8 @@ router.get("/", (req, res) => {
 });
 
 // GET crop by id action to retrieve a single crop by its id
-router.get("/:name", (req, res) => {
-  Crop.findOne({ name: req.params.name }, (err, crop) => {
+router.get("/:id", (req, res) => {
+  Crop.findOne({ _id: req.params.id }, (err, crop) => {
     if (err) res.send(err);
     // if no error, retrieve and display crop to client
     res.json(crop);
@@ -52,8 +54,8 @@ router.get("/:name", (req, res) => {
 });
 
 // DELETE action by id
-router.delete("/:name", (req, res) => {
-  Crop.remove({ name: req.params.name }, (err, result) => {
+router.delete("/:id", requireAuth, (req, res) => {
+  Crop.remove({ _id: req.params.id }, (err, result) => {
     res.json({ message: "Crop successfully deleted!" });
   });
 });

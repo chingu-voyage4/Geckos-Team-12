@@ -1,73 +1,54 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
+const mongoose = require("mongoose"),
+  Schema = mongoose.Schema,
+  bcrypt = require("bcrypt-nodejs");
 // user schema definition
-const UserSchema = new Schema(
-  {
-<<<<<<< HEAD
-    first_name: {
-      type: String, 
-      required: true, 
-      max: 100
+const UserSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true
   },
-    family_name: {
-      type: String, 
-      required: true, 
-      max: 100
+  password: {
+    type: String,
+    required: true,
+    max: 20
   },
-    date_of_birth: {
-      type: Date
+  role: {
+    type: String
   },
-    email: {
-      type: String, 
-      lowercase: true, 
-      required: true, 
-      match: [/\S+@\S+\.\S+/, 'is invalid'], 
-      index: true
+  score: {
+    type: String
   },
-    profession: {
-      type: String, 
-      required: true, 
-      max: 100
-  }, 
-    createdAt: { type: Date, default: Date.now },    
-  }, 
-);
-||||||| merged common ancestors
-    first_name: {type: String, required: true, max: 100},
-    family_name: {type: String, required: true, max: 100},
-    date_of_birth: {type: Date},
-    email: {type: String, lowercase: true, required: true, match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
-    profession: {type: String, required: true, max: 100},
-  }, {timestamps: true});
-=======
-    username: {
-      type: String, 
-      required: true, 
-    },
-    password: {
-      type: String, 
-      required: true, 
-      max: 20
-    },
-    score: {
-      type: String
-    }, 
-    createdAt: Date,
-    updatedAt: Date
+  crops: [{ type: mongoose.Schema.Types.ObjectId, ref: "Crop" }],
+  badges: [{ type: mongoose.Schema.Types.ObjectId, ref: "Badge" }],
+  createdAt: {
+    type: Date
+  },
+  updatedAt: {
+    type: Date
+  }
 });
 
->>>>>>> 23cca3650cde5454693bfac92b78ec1c43400898
-
-// Sets the timestamp createdAt parameter equal to the current time
-CropSchema.pre('save', next => {
-  now = new Date();
-  if(!this.createdAt) {
-    this.createdAt = now;
-  }
-  next();
+//on save hook, encrypt the password
+UserSchema.pre("save", function(next) {
+  const user = this;
+  console.log("saving", user);
+  bcrypt.genSalt(10, (err, salt) => {
+    if (err) return next(err);
+    bcrypt.hash(user.password, salt, null, (err, hash) => {
+      if (err) return next(err);
+      user.password = hash;
+      next();
+    });
   });
+});
 
+UserSchema.methods.comparePassword = function(candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    if (err) return callback(err);
+    callback(null, isMatch);
+  });
+};
 
 //Export model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

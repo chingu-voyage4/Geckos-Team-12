@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCrops } from "../redux/Crops";
+import "../assets/css/catalog.css";
 
 export class Catalog extends Component {
   componentWillMount() {
@@ -10,19 +11,40 @@ export class Catalog extends Component {
   // goCrop= () => this.props.history.push("/singlecrop");
 
   renderCrops() {}
+// function displayCrops() {
+//   for var i = 0; i< mock_crops.length; i++{
+//     if(input === mock_crops.name[i]){
 
+//     }
+//   }
+  
+// }
   render() {
     const { crops, loading } = this.props;
     return (
-      <div>
-        <h1>Catalog page</h1>
-        <div>
+      <div className="container">
+
+          
+        <section className="choose">
+        <h1>Choose your crop</h1>
+        <input type="text"/>
+      </section>
+
+
+
+
+
+
+        <div className="crop-container" >
           {loading && <p>Crops Loading...</p>}
           {!loading && crops.length > 0
             ? crops.map(crop => (
                 <div key={crop.id}>
-                  <Link to={`/crops/${crop.name}`}>{crop.name}</Link>
-                  <p>{crop.category}</p>
+                  <div className="crop-data">
+                    <Link to={`/crops/${crop.name}`}><img alt=""src={crop.url}/>
+                    <h3>{crop.name}</h3>
+                    <p>{crop.category}</p></Link>
+                  </div>
                 </div>
               ))
             : !loading && <p>No crops found...Come back next srping</p>}
@@ -44,4 +66,7 @@ const mapDispatchToProps = dispatch => ({
   getCrops: () => dispatch(getCrops())
 });
 
+// function changeImage(){
+//  let 
+// }
 export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
