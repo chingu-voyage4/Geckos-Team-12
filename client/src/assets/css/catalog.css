@@ -28,19 +28,23 @@ html {
   align-items: center;
   flex-direction: column;
 }
+.container a {
+  text-decoration: none;
+  color: #250f0f;
+}
 
 .choose {
   display: flex;
   align-items: center;
   margin: 3rem 0;
-
   flex-direction: column;
 }
 
 img {
   width: 10rem;
   height: 10rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
+  border: solid 2px #250f0f;
 }
 
 .crop-container {
