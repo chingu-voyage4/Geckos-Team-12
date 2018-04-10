@@ -11,6 +11,7 @@ import MyGarden from "./containers/MyGarden";
 import Profile from "./containers/Profile";
 import Crop from "./containers/Crop";
 import "./assets/css/index.css";
+import "./assets/css/components.css";
 const store = configureStore();
 
 const App = () => (

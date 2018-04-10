@@ -30,7 +30,8 @@ describe("CROPS", () => {
       const body = {
         name: "test_crop1",
         category: "Veggie",
-        image_url: "",
+        image_url_thumb: "",
+        image_url_header: "",
         short_desc: "Best veggie ever",
         difficulty_level: "easy",
         best_season: "spring",
@@ -49,7 +50,7 @@ describe("CROPS", () => {
     });
     it("Successfully update a crop", done => {
       const body = {
-        image_url: "http://test_crop1"
+        image_url_thumb: "http://test_crop1"
       };
       request(app)
         .post(`/crops/${crop_id}`)
@@ -59,7 +60,7 @@ describe("CROPS", () => {
           console.log(res.body);
           assert(res.status === 200);
           assert(res.body.message === "Crop successfully updated!");
-          assert(res.body.crop.image_url === "http://test_crop1");
+          assert(res.body.crop.image_url_thumb === "http://test_crop1");
         })
         .end(done);
     });

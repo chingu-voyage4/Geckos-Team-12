@@ -7,7 +7,10 @@ let crops = [
   {
     name: "Tomato",
     category: "Veggie",
-    image_url: "../assets/images/tomato.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/tomato_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/tomato_header.jpg",
     short_desc:
       "The tomato is the edible, often red, vegetable of the plant Solanum lycopersicum, commonly known as a tomato plant.",
     difficulty_level: "Easy",
@@ -17,7 +20,10 @@ let crops = [
   {
     name: "Cucumber",
     category: "Veggie",
-    image_url: "../assets/images/cucumber.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/cucumber_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/cucumber_header.jpg",
     short_desc:
       "Cucumber (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae. It is a creeping vine that bears cucumiform fruits that are used as vegetables.",
     difficulty_level: "Easy",
@@ -27,7 +33,10 @@ let crops = [
   {
     name: "Spinach",
     category: "Veggie",
-    image_url: "../assets/images/spinach.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/spinach_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/spinach_header.jpg",
     short_desc:
       "Spinach (Spinacia oleracea) is an edible flowering plant in the family Amaranthaceae native to central and western Asia. Its leaves are eaten as a vegetable.",
     difficulty_level: "Easy",
@@ -37,7 +46,10 @@ let crops = [
   {
     name: "Coriander",
     category: "Herb",
-    image_url: "../assets/images/coriander.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/coriander_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/coriander_header.jpg",
     short_desc:
       "Coriander, also known as cilantro (/sɪˈlɑːntroʊ/) or Chinese parsley, is an annual herb in the family Apiaceae. All parts of the plant are edible, but the fresh leaves and the dried seeds are the parts most traditionally used in cooking.",
     difficulty_level: "Easy",
@@ -47,7 +59,10 @@ let crops = [
   {
     name: "Basil",
     category: "herb",
-    image_url: "../assets/images/basil.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/basil_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/basil_header.jpg",
     short_desc:
       "Basil (Ocimum basilicum), also called great basil or Saint-Joseph's-wort, is a culinary herb of the family Lamiaceae (mints). The name 'basil' comes from Latin, Basilius, and Greek βασιλικόν φυτόν (basilikón phutón), 'royal/kingly plant'.",
     difficulty_level: "medium",
@@ -57,7 +72,10 @@ let crops = [
   {
     name: "Parsley",
     category: "Herb",
-    image_url: "../assets/images/parsley.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/parsley_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/parsley_header.jpg",
     short_desc:
       "Parsley or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae, native to the central Mediterranean region (southern Italy, Greece, Portugal, Spain, Malta, Morocco, Algeria, and Tunisia), naturalized elsewhere in Europe, and widely cultivated as an herb, a spice, and a vegetable.",
     difficulty_level: "easy",
@@ -67,7 +85,10 @@ let crops = [
   {
     name: "Garlic",
     category: "veggie",
-    image_url: "../assets/images/garlic.jpg",
+    image_ur_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/garlic_thumb.jpg",
+    image_ur_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/garlic_header.jpg",
     short_desc:
       "Garlic (Allium sativum) is a species in the onion genus, Allium. Its close relatives include the onion, shallot, leek, chive, and Chinese onion. Garlic is native to Central Asia and northeastern Iran, and has long been a common seasoning worldwide, with a history of several thousand years of human consumption and use. It was known to ancient Egyptians, and has been used both as a food flavoring and as a traditional medicine.",
     difficulty_level: "easy",
@@ -77,7 +98,10 @@ let crops = [
   {
     name: "strawberry",
     category: "berry",
-    image_url: "../assets/images/strawberry.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/strawberry_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/strawberry_header.jpg",
     short_desc:
       "The garden strawberry (or simply strawberry; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries. It is cultivated worldwide for its fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.",
     difficulty_level: "medium",
@@ -87,7 +111,10 @@ let crops = [
   {
     name: "onion",
     category: "vegetable",
-    image_url: "../assets/images/onion.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/clienthttps://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/onion_header.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/clienthttps://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/onion_thumb.jpg",
     short_desc:
       "The onion (Allium cepa L., from Latin cepa 'onion'), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. Its close relatives include the garlic, shallot, leek, chive, and Chinese onion.",
     difficulty_level: "medium",
@@ -97,7 +124,10 @@ let crops = [
   {
     name: "raspberry",
     category: "berry",
-    image_url: "../assets/images/raspberry.jpg",
+    image_url_thumb:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/clienthttps://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/raspberry_thumb.jpg",
+    image_url_header:
+      "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/clienthttps://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/raspberry_header.jpg",
     short_desc:
       "The raspberry is the edible fruit of a multitude of plant species in the genus Rubus of the rose family, most of which are in the subgenus Idaeobatus; the name also applies to these plants themselves. Raspberries are perennial with woody stems.",
     difficulty_level: "medium",
