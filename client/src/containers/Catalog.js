@@ -8,46 +8,33 @@ export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
-  // goCrop= () => this.props.history.push("/singlecrop");
-
-  renderCrops() {}
-// function displayCrops() {
-//   for var i = 0; i< mock_crops.length; i++{
-//     if(input === mock_crops.name[i]){
-
-//     }
-//   }
-  
-// }
   render() {
     const { crops, loading } = this.props;
     return (
       <div className="container">
-
-          
         <section className="choose">
-        <h1>Choose your crop</h1>
-        <input type="text"/>
-      </section>
-
-
-
-
-
-
-        <div className="crop-container" >
+          <h1>Choose your crop</h1>
+          <input type="text" />
+        </section>
+        <div className="crop-container">
           {loading && <p>Crops Loading...</p>}
           {!loading && crops.length > 0
             ? crops.map(crop => (
-                <div key={crop.id}>
+                <div key={crop._id}>
                   <div className="crop-data">
-                    <Link to={`/crops/${crop.name}`}><img alt=""src={crop.url}/>
-                    <h3>{crop.name}</h3>
-                    <p>{crop.category}</p></Link>
+                    <Link to={`/crops/${crop._id}`}>
+                      <img src={crop.image_url_thumb} alt="Crop thumb" />
+                      <h3>{crop.name}</h3>
+                      <p>{crop.category}</p>
+                    </Link>
                   </div>
                 </div>
               ))
-            : !loading && <p>No crops found...Come back next srping</p>}
+            : !loading && (
+                <p className="crop-error">
+                  No crops found...Come back next spring
+                </p>
+              )}
         </div>
       </div>
     );
@@ -67,6 +54,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 // function changeImage(){
-//  let 
+//  let
 // }
 export default connect(mapStateToProps, mapDispatchToProps)(Catalog);

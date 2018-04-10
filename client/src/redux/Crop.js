@@ -1,22 +1,17 @@
-const mock_crop = {
-  name: "tomato",
-  category: "veggie",
-  description: "best veggie ever",
-  info: ["item1", "item2", "item3"]
-};
-//const mock_error = { message: "crop not found", stack: "bla bla" };
+import axios from "axios";
 //action
 const CROP_LOADING = "crop/LOADING";
 const CROP_FETCHED = "crop/FETCHED";
 const CROP_FAILED = "crop/FAILED";
 
 //action creators
-export const getCrop = name => dispatch => {
+export const getCrop = id => dispatch => {
   //fetch crop from DB
   dispatch({ type: CROP_LOADING });
-  setTimeout(() => dispatch({ type: CROP_FETCHED, data: mock_crop }), 500);
-
-  //dispatch({ type: CROP_FAILED, data: mock_error });
+  return axios
+    .get(`http://localhost:5000/crops/${id}`)
+    .then(res => dispatch({ type: CROP_FETCHED, data: res.data }))
+    .catch(err => dispatch({ type: CROP_FAILED, data: err }));
 };
 //reducers
 const initialState = {

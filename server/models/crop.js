@@ -11,10 +11,12 @@ const CropSchema = new Schema({
     type: String,
     required: true
   },
-  image_url: {
+  image_url_thumb: {
     type: String
   },
-
+  image_url_header: {
+    type: String
+  },
   short_desc: {
     type: String
   },

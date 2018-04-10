@@ -26,7 +26,7 @@ export class Navbar extends Component {
           SimpleSeed
         </div>
         <div className="nav-bar-menu">
-          <Link className="" to="/Catalog">
+          <Link className="" to="/catalog">
             Catalog
           </Link>
           <Link className="" to="/mygarden">
