@@ -16,7 +16,7 @@ exports[`Navbar should render 1`] = `
     <Link
       className=""
       replace={false}
-      to="/Catalog"
+      to="/catalog"
     >
       Catalog
     </Link>

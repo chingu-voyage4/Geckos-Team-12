@@ -60,7 +60,7 @@ describe("CROPS", () => {
           console.log(res.body);
           assert(res.status === 200);
           assert(res.body.message === "Crop successfully updated!");
-          assert(res.body.crop.image_url === "http://test_crop1");
+          assert(res.body.crop.image_url_thumb === "http://test_crop1");
         })
         .end(done);
     });
