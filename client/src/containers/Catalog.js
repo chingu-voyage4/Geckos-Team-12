@@ -25,7 +25,6 @@ export class Catalog extends Component {
                     <Link to={`/crops/${crop._id}`}>
                       <img src={crop.image_url_thumb} alt="Crop thumb" />
                       <h3>{crop.name}</h3>
-                      <p>{crop.category}</p>
                     </Link>
                   </div>
                 </div>

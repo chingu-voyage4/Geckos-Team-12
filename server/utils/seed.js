@@ -85,9 +85,9 @@ let crops = [
   {
     name: "Garlic",
     category: "veggie",
-    image_ur_thumb:
+    image_url_thumb:
       "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/garlic_thumb.jpg",
-    image_ur_header:
+    image_url_header:
       "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/garlic_header.jpg",
     short_desc:
       "Garlic (Allium sativum) is a species in the onion genus, Allium. Its close relatives include the onion, shallot, leek, chive, and Chinese onion. Garlic is native to Central Asia and northeastern Iran, and has long been a common seasoning worldwide, with a history of several thousand years of human consumption and use. It was known to ancient Egyptians, and has been used both as a food flavoring and as a traditional medicine.",
@@ -96,7 +96,7 @@ let crops = [
     climate: "Mild weather"
   },
   {
-    name: "strawberry",
+    name: "Strawberry",
     category: "berry",
     image_url_thumb:
       "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/strawberry_thumb.jpg",
@@ -109,7 +109,7 @@ let crops = [
     climate: "Cold weather"
   },
   {
-    name: "onion",
+    name: "Onion",
     category: "vegetable",
     image_url_header:
       "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/clienthttps://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/onion_header.jpg",
@@ -122,7 +122,7 @@ let crops = [
     climate: "Cold weather"
   },
   {
-    name: "raspberry",
+    name: "Raspberry",
     category: "berry",
     image_url_thumb:
       "https://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/clienthttps://raw.githubusercontent.com/chingu-voyage4/Geckos-Team-12/develop/client/src/assets/images/raspberry_thumb.jpg",

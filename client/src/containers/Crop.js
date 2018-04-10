@@ -10,17 +10,28 @@ const CropHead = ({ title, image_url_header }) => (
   </div>
 );
 
+const Tasks = ({ tasks }) => (
+  <div className="tasks">
+    <div>Crops tasks coming soon...</div>
+  </div>
+);
+
 // adding description and bullet section
 class CropInfo extends Component {
   render() {
-    const { short_desc, difficulty_level, best_season, climate } = this.props;
+    const {
+      short_desc,
+      category,
+      difficulty_level,
+      best_season,
+      climate
+    } = this.props;
 
     return (
       <div className="infoSection">
-        <div className="infoDesc">
-          <p>{short_desc}</p>{" "}
-        </div>
+        <div className="infoDesc">{short_desc}</div>
         <div className="infoWrapper">
+          <div className="infoItems">Category : {category}</div>
           <div className="infoItems">Difficulty : {difficulty_level}</div>
           <div className="infoItems">Best time to plant : {best_season}</div>
           <div className="infoItems">Suitable climate: {climate}</div>
@@ -48,6 +59,7 @@ class Crop extends Component {
               image_url_header={crop.image_url_header}
             />
             <CropInfo {...crop} />
+            <Tasks />
           </div>
         )}
       </div>
