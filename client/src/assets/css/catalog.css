@@ -59,7 +59,12 @@ img {
   margin: 1rem;
   text-align: center;
 }
-
+.crop-data svg {
+  position: relative;
+  bottom: 60px; /*your button position*/
+  /*your button position*/
+  color: #fff;
+}
 @media screen and (max-width: 500px) {
   .crop-container {
     grid-template-columns: repeat(2, 1fr);

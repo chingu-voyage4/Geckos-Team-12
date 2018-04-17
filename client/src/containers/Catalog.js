@@ -8,6 +8,9 @@ export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
+  addCrop(id) {
+    console.log(id);
+  }
   render() {
     const { crops, loading } = this.props;
     return (
@@ -26,6 +29,10 @@ export class Catalog extends Component {
                       <img src={crop.image_url_thumb} alt="Crop thumb" />
                       <h3>{crop.name}</h3>
                     </Link>
+                    <i
+                      class="far fa-plus-square fa-2x"
+                      onClick={() => this.addCrop(crop._id)}
+                    />
                   </div>
                 </div>
               ))
