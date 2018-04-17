@@ -14,32 +14,26 @@ export class Landing extends Component {
           <div className="catchy-footer">
             <div className="catchy-feature">
               <div className="catchy-img">
-                <img alt="Feature logo" />
+                <i className="fab fa-leanpub fa-5x" />
               </div>
               <div className="catchy-content">
-                <p>
-                  Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                </p>
+                <p>Learn growing your own food.</p>
               </div>
             </div>
             <div className="catchy-feature">
               <div className="catchy-img">
-                <img alt="Feature logo" />
+                <i className="far fa-bell fa-5x" />
               </div>
               <div className="catchy-content">
-                <p>
-                  Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                </p>
+                <p>Get specific reminders.</p>
               </div>
             </div>
             <div className="catchy-feature">
               <div className="catchy-img">
-                <img alt="Feature logo" />
+                <i className="fas fa-trophy fa-5x" />
               </div>
               <div className="catchy-content">
-                <p>
-                  Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                </p>
+                <p>Earn community badges</p>
               </div>
             </div>
           </div>
@@ -59,53 +53,50 @@ export class Landing extends Component {
           <h1 className="features-title">Why use SimpleSeed?</h1>
           <div className="feature">
             <div className="feature-img">
-              <img alt="Feature logo" />
+              <i className="fab fa-leanpub fa-5x" />
             </div>
             <div className="feature-content">
               <p>
-                Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                Thistle florist’s nighmare lavender calla lily prairie gentian
-                bogbean. Begonia marigold scots primrose oxlip cotton-grass
-                peruvian lily. Spurge anemone, flamingo flower.
+                Browse freely our collection of crop basic info and tutorials.
+                Our dedicated coders-gardeners have gathered data from across th
+                web to help you learn how to easily grow organic food.
               </p>
             </div>
           </div>
           <div className="feature-flip">
             <div className="feature-img-flip">
-              <img alt="Feature logo" />
+              <i className="far fa-bell fa-5x" />
             </div>
             <div className="feature-content-flip">
               <p>
-                Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                Thistle florist’s nighmare lavender calla lily prairie gentian
-                bogbean. Begonia marigold scots primrose oxlip cotton-grass
-                peruvian lily. Spurge anemone, flamingo flower.
+                Busy with work and family. No worries, we got you covered we
+                will remind everytime your crops need attention. You can choose
+                from web to email notifications.
               </p>
             </div>
           </div>
           <div className="feature">
             <div className="feature-img">
-              <img alt="Feature logo" />
+              <i className="fas fa-trophy fa-5x" />
             </div>
             <div className="feature-content">
               <p>
-                Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                Thistle florist’s nighmare lavender calla lily prairie gentian
-                bogbean. Begonia marigold scots primrose oxlip cotton-grass
-                peruvian lily. Spurge anemone, flamingo flower.
+                Complete our easy tutorials and earn badges and trophys to
+                become a an active member of our community. And if you want it
+                you can start writing your own tutorials.
               </p>
             </div>
           </div>
           <div className="feature-flip">
             <div className="feature-img-flip">
-              <img alt="Feature logo" />
+              <i className="fas fa-users fa-5x" />
             </div>
             <div className="feature-content-flip">
               <p>
-                Florem ipsum cuckooflower foxtail lily bloody crane's-bill.
-                Thistle florist’s nighmare lavender calla lily prairie gentian
-                bogbean. Begonia marigold scots primrose oxlip cotton-grass
-                peruvian lily. Spurge anemone, flamingo flower.
+                Be part of a growing community. More and more people Turn to
+                their yard to grow their own crops. From aromatic herbds to
+                potatoes we are here to help you join ypur neighbours into this
+                great experience.
               </p>
             </div>
           </div>
