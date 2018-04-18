@@ -114,18 +114,55 @@
   grid-column: 1/-1;
   border: solid 3px #250f0f;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1px 1fr;
   grid-template-rows: 80px 1fr;
 }
 .s4 h1 {
   grid-column: 1/-1;
   text-align: center;
+  padding-top: 20px;
 }
 .s4-1 {
   text-align: center;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 .s4-2 {
   text-align: center;
-  padding-top: 80px;
+  padding-top: 20px;
+}
+.form-title {
+  padding: 20px 0px;
+  font-size: 22px;
+}
+
+.form input {
+  background: #fff;
+  line-height: 1rem;
+  padding: 20px 20px;
+}
+.form div {
+  margin: 0px 40px;
+}
+
+.form button {
+  width: 30%;
+  height: 30px;
+  border-radius: 5px;
+  background: #250f0f;
+  color: #5caa0a;
+  border-color: #5caa0a;
+  margin-top: 20px;
+}
+.form button:hover {
+  background: #5caa0a;
+  color: #250f0f;
+  border-color: #250f0f;
+}
+
+.divider {
+  border: solid 1px #5caa0a;
+  height: 80%;
+}
+.error {
+  color: #f6511d;
 }

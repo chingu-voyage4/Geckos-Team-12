@@ -1,8 +1,4 @@
-//here lies the authentication related actions and reducers
-//here is an example
-
-//mock_data
-const mock_token = "flerhfwiuhy49776837fy7ho24vb2f29p430fuhip3crox";
+import axios from "axios";
 //actions
 const AUTH_SUCCESS = "auth/SUCCESS";
 const AUTH_LOADING = "auth/LOADING";
@@ -14,8 +10,18 @@ const AUTH_LOGOUT = "auth/LOGOUT";
 export const signInUser = reqData => dispatch => {
   dispatch({ type: AUTH_LOADING });
 
-  setTimeout(() => dispatch({ type: AUTH_SUCCESS, data: mock_token }), 1000);
-  // dispatch({ type: AUTH_FAILED, data: err });
+  return axios
+    .post(`http://localhost:5000/auth/signin`, reqData)
+    .then(res => dispatch({ type: AUTH_SUCCESS, data: res.data }))
+    .catch(err => dispatch({ type: AUTH_FAILED, data: err.response }));
+};
+export const signUpUser = reqData => dispatch => {
+  dispatch({ type: AUTH_LOADING });
+
+  return axios
+    .post(`http://localhost:5000/auth/signup`, reqData)
+    .then(res => dispatch({ type: AUTH_SUCCESS, data: res.data }))
+    .catch(err => dispatch({ type: AUTH_FAILED, data: err.response }));
 };
 export const signOutUser = () => dispatch => {
   dispatch({ type: AUTH_LOGOUT });
@@ -44,7 +50,7 @@ export default function reducer(state = initialState, action) {
 
       return {
         ...state,
-        authenticated: true,
+        authenticated: action.data,
         loading: false
       };
     case AUTH_FAILED:
