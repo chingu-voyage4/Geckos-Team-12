@@ -4,14 +4,19 @@
   "description": "mern app allowing you to learn growing crops",
   "main": "index.js",
   "scripts": {
-    "start":
-      "concurrently  \"cd server && npm start\" \"cd client && npm start\""
+    "start": "concurrently  \"cd server && npm start\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chingu-voyage4/Geckos-Team-12.git"
   },
-  "keywords": ["mern", "js", "react", "express", "mongodb"],
+  "keywords": [
+    "mern",
+    "js",
+    "react",
+    "express",
+    "mongodb"
+  ],
   "author": "geckos-12",
   "license": "ISC",
   "bugs": {
