@@ -7,11 +7,12 @@ import thunk from "redux-thunk";
 import crops from "./Crops";
 import auth from "./Auth";
 import crop from "./Crop";
-
+import { reducer as formReducer } from "redux-form";
 const reducer = combineReducers({
   auth,
   crops,
-  crop
+  crop,
+  form: formReducer
 });
 
 const rootReducer = (state, action) => {

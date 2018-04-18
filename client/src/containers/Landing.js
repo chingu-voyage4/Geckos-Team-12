@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../assets/css/landing.css";
-
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 export class Landing extends Component {
   render() {
     return (
@@ -104,8 +105,15 @@ export class Landing extends Component {
 
         <div className="s4">
           <h1>Give it a try</h1>
-          <div className="s4-1">Login</div>
-          <div className="s4-2">SignUp</div>
+          <div className="s4-1">
+            <div className="form-title">Login</div>
+            <Login />
+          </div>
+          <div className="divider" />
+          <div className="s4-2">
+            <div className="form-title">SignUp</div>
+            <Signup />
+          </div>
         </div>
       </div>
     );
