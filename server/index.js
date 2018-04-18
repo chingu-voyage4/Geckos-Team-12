@@ -1,7 +1,7 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
   app = express(),
-  seedDB = require("./utils/seed").seedDB,
+  //seedDB = require("./utils/seed").seedDB,
   crop = require("./routes/crops"),
   task = require("./routes/tasks"),
   badge = require("./routes/badges"),
@@ -22,12 +22,12 @@ if (process.env.DEBUG === "server") {
 }
 
 //Set up mongoose connection
-const mongoose = require('mongoose');
-const mongoDB = 'mongodb://any:team@ds259268.mlab.com:59268/farm-app';
+const mongoose = require("mongoose");
+const mongoDB = "mongodb://any:team@ds259268.mlab.com:59268/farm-app";
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // CORS middleware
 var cors = require("cors");
@@ -40,7 +40,6 @@ app.use(cors());
 app.use(bodyParser.json({ type: "*/*" }));
 app.get("/ping", (req, res) => res.send("pong"));
 
-
 app.use("/auth", auth);
 app.use("/crops", crop);
 app.use("/tasks", requireAuth, task);
@@ -48,14 +47,12 @@ app.use("/badges", requireAuth, badge);
 app.use("/users", requireAuth, user);
 
 //DB seedlings
-seedDB();
+//seedDB();
 //Server Setup
 const port = process.env.PORT || 5000;
-
 
 app.listen(port);
 
 console.log("Server listening on Port", port);
 
 module.exports.app = app;
-
