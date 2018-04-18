@@ -3,7 +3,25 @@ import { connect } from "react-redux";
 import "../assets/css/landing.css";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import { signInUser, signUpUser } from "../redux/Auth";
+
 export class Landing extends Component {
+  handleLogin = e => {
+    e.preventDefault();
+    let values = this.props.form.loginForm.values;
+    console.log(values);
+    this.props
+      .signInUser(values)
+      .then(() => this.props.history.push("/mygarden"));
+  };
+  handleSignup = e => {
+    e.preventDefault();
+    let values = this.props.form.signupForm.values;
+    console.log(values);
+    this.props
+      .signUpUser(values)
+      .then(() => this.props.history.push("/mygarden"));
+  };
   render() {
     return (
       <div className="landing">
@@ -107,23 +125,27 @@ export class Landing extends Component {
           <h1>Give it a try</h1>
           <div className="s4-1">
             <div className="form-title">Login</div>
-            <Login />
+            <Login handleSubmit={this.handleLogin} />
           </div>
           <div className="divider" />
           <div className="s4-2">
             <div className="form-title">SignUp</div>
-            <Signup />
+            <Signup handleSubmit={this.handleSignUp} />
           </div>
         </div>
       </div>
     );
   }
 }
-
+const mapDispatchToProps = dispatch => ({
+  signInUser: values => dispatch(signInUser(values)),
+  signUpUser: values => dispatch(signUpUser(values))
+});
 const mapStateToProps = state => {
   return {
-    auth: state.auth.authenticated
+    auth: state.auth.authenticated,
+    form: state.form
   };
 };
 
-export default connect(mapStateToProps, null)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

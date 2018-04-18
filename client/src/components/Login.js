@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
-import { signInUser } from "../redux/Auth";
 import { Field, reduxForm } from "redux-form";
 import renderField from "./renderField";
+
 const validate = values => {
   const errors = {};
   if (!values.username) {
@@ -13,17 +11,23 @@ const validate = values => {
   ) {
     errors.username = "Invalid email address";
   }
-
+  if (!values.password) {
+    errors.password = "Required";
+  } else if (
+    !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(
+      values.password
+    )
+  ) {
+    errors.password =
+      "Password must be contain at - at least 8 characters - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number - Can contain special characters";
+  }
   return errors;
 };
 class Login extends Component {
-  handleSubmit(values) {
-    this.props.signInUser(values);
-  }
   render() {
-    const { submitting } = this.props;
+    const { handleSubmit, valid, submitting } = this.props;
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <Field
           name="username"
           type="text"
@@ -37,7 +41,7 @@ class Login extends Component {
           label="Password"
         />
         <div>
-          <button type="submit" disabled={submitting}>
+          <button type="submit" disabled={!valid || submitting}>
             Submit
           </button>
         </div>
@@ -45,13 +49,8 @@ class Login extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {};
-};
-const mapDispatchToProps = dispatch => ({
-  signInUser: values => dispatch(signInUser(values))
-});
+
 export default reduxForm({
   form: "loginForm",
   validate
-})(connect(mapStateToProps, mapDispatchToProps)(Login));
+})(Login);

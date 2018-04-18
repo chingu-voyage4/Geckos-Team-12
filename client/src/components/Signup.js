@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
-import { signUpUser } from "../redux/Auth";
 import { Field, reduxForm } from "redux-form";
 import renderField from "./renderField";
 
@@ -32,13 +29,10 @@ const validate = values => {
   return errors;
 };
 class Signup extends Component {
-  handleSubmit(values) {
-    this.props.signUpUser(values);
-  }
   render() {
-    const { submitting } = this.props;
+    const { handleSubmit, valid, submitting } = this.props;
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <Field
           name="username"
           type="text"
@@ -58,7 +52,7 @@ class Signup extends Component {
           label="Confirm password"
         />
         <div>
-          <button type="submit" disabled={submitting}>
+          <button type="submit" disabled={!valid || submitting}>
             Submit
           </button>
         </div>
@@ -66,13 +60,8 @@ class Signup extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {};
-};
-const mapDispatchToProps = dispatch => ({
-  signUpUser: values => dispatch(signUpUser(values))
-});
+
 export default reduxForm({
   form: "signupForm",
   validate
-})(connect(mapStateToProps, mapDispatchToProps)(Signup));
+})(Signup);

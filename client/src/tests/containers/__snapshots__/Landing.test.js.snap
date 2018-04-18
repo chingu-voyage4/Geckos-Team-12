@@ -180,12 +180,25 @@ exports[`Landing should render 1`] = `
     <div
       className="s4-1"
     >
-      Login
+      <div
+        className="form-title"
+      >
+        Login
+      </div>
+      <ReduxForm />
     </div>
+    <div
+      className="divider"
+    />
     <div
       className="s4-2"
     >
-      SignUp
+      <div
+        className="form-title"
+      >
+        SignUp
+      </div>
+      <ReduxForm />
     </div>
   </div>
 </div>
