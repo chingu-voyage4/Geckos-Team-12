@@ -185,7 +185,9 @@ exports[`Landing should render 1`] = `
       >
         Login
       </div>
-      <ReduxForm />
+      <ReduxForm
+        handleSubmit={[Function]}
+      />
     </div>
     <div
       className="divider"
