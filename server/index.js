@@ -23,7 +23,9 @@ if (process.env.DEBUG === "server") {
 
 //Set up mongoose connection
 const mongoose = require("mongoose");
-const mongoDB = "mongodb://any:team@ds259268.mlab.com:59268/farm-app";
+const mongoDB =
+  process.env.MONGODB_URI ||
+  "mongodb://any:team@ds259268.mlab.com:59268/farm-app";
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;

@@ -28,7 +28,7 @@
     "supertest": "^3.0.0"
   },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "nyc mocha --exit --timeout 10000"
   },
   "author": "geckos12",
