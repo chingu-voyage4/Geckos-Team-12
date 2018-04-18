@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCrops } from "../redux/Crops";
+import { addCrop } from "../redux/Mygarden";
 import "../assets/css/catalog.css";
 
 export class Catalog extends Component {
   componentWillMount() {
     this.props.getCrops();
   }
-  addCrop(id) {
-    console.log(id);
+  addCrop(cropId) {
+    console.log(cropId);
+    this.props.addCrop(this.props.auth, cropId);
   }
   render() {
     const { crops, loading } = this.props;
@@ -29,10 +31,9 @@ export class Catalog extends Component {
                       <img src={crop.image_url_thumb} alt="Crop thumb" />
                       <h3>{crop.name}</h3>
                     </Link>
-                    <i
-                      class="far fa-plus-square fa-2x"
-                      onClick={() => this.addCrop(crop._id)}
-                    />
+                    <button onClick={() => this.addCrop(crop._id)}>
+                      <i className="far fa-plus-square fa-2x" />
+                    </button>
                   </div>
                 </div>
               ))
@@ -56,7 +57,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getCrops: () => dispatch(getCrops())
+  getCrops: () => dispatch(getCrops()),
+  addCrop: (username, cropId) => dispatch(addCrop(username, cropId))
 });
 
 // function changeImage(){

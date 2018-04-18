@@ -1,16 +1,25 @@
 .crop {
   display: grid;
   grid-auto-columns: 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 100px 1fr;
   font-size: 1.5em;
+}
+.back {
+  display: flex;
+}
+.back a {
+  padding: 20px 10px;
 }
 /* header section styles */
 .headbg {
   padding: 2em;
-  margin: 0px 20px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .headText {
@@ -21,6 +30,21 @@
   line-height: 30vh;
   font-size: 3em;
   text-transform: uppercase;
+}
+.headButton {
+  text-align: center;
+  line-height: 5vh;
+  font-size: 1em;
+  background: rgba(37, 15, 15, 1);
+  color: #fff;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0px 42%;
+}
+.headButton:hover {
+  color: #5ef38c;
+  border-color: #5ef38c;
 }
 
 /* description & info section styles */

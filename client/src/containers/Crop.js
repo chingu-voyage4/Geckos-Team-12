@@ -7,6 +7,7 @@ import "../assets/css/crop.css";
 const CropHead = ({ title, image_url_header }) => (
   <div className="headbg" style={{ background: `url(${image_url_header})` }}>
     <h1 className="headText">{title} </h1>
+    <button className="headButton">Add to garden</button>
   </div>
 );
 
