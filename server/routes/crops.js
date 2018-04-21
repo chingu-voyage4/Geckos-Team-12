@@ -6,7 +6,6 @@ const express = require("express"),
   passport = require("passport"),
   requireAuth = passport.authenticate("jwt", { session: false });
 
-console.log("crops router");
 // POST action to save a new crop
 router.post("/", requireAuth, (req, res) => {
   // creates a new crop
