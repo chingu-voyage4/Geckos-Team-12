@@ -7,7 +7,8 @@ const express = require("express"),
   badge = require("./routes/badges"),
   user = require("./routes/users"),
   auth = require("./routes/auth"),
-  passport = require("passport");
+  passport = require("passport"),
+  path = require("path");
 
 if (process.env.NODE_ENV !== "production") {
   // Development environment
@@ -20,6 +21,11 @@ if (process.env.DEBUG === "server") {
   const morgan = require("morgan");
   app.use(morgan("tiny"));
 }
+
+// get reference to the client build directory
+const staticFiles = express.static(path.join(__dirname, "../client/build"));
+// pass the static files (react app) to the express app.
+app.use(staticFiles);
 
 //Set up mongoose connection
 const mongoose = require("mongoose");

@@ -4,9 +4,11 @@
   "description": "Grow anything simply",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "heroku-postbuild":
-      "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "install": "(cd client && npm install) && (cd server && npm install)",
+    "start": "concurrently \"cd client && npm start\" \"cd server && npm start\"",
+    "build": "concurrently \"cd client && npm build\" \"cd server && npm build\"",
+    "start:prod": "cd server && npm start:prod",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/chingu-voyage4/Geckos-Team-12/issues"
   },
-  "homepage": "https://github.com/chingu-voyage4/Geckos-Team-12#readme"
+  "homepage": "https://github.com/chingu-voyage4/Geckos-Team-12#readme",
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  }
 }
