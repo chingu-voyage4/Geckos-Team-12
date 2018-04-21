@@ -11,7 +11,7 @@ export const signInUser = reqData => dispatch => {
   dispatch({ type: AUTH_LOADING });
 
   return axios
-    .post(`http://localhost:5000/auth/signin`, reqData)
+    .post(`/auth/signin`, reqData)
     .then(res => dispatch({ type: AUTH_SUCCESS, data: res.data }))
     .catch(err => dispatch({ type: AUTH_FAILED, data: err.response }));
 };
@@ -19,7 +19,7 @@ export const signUpUser = reqData => dispatch => {
   dispatch({ type: AUTH_LOADING });
 
   return axios
-    .post(`http://localhost:5000/auth/signup`, reqData)
+    .post(`/auth/signup`, reqData)
     .then(res => dispatch({ type: AUTH_SUCCESS, data: res.data }))
     .catch(err => dispatch({ type: AUTH_FAILED, data: err.response }));
 };

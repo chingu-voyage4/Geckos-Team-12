@@ -8,7 +8,7 @@ export const addCrop = (username, cropId) => dispatch => {
   dispatch({ type: MYGARDEN_LOADING });
 
   return axios
-    .post(`http://localhost:5000/user/${username}/crops/${cropId}`)
+    .post(`/user/${username}/crops/${cropId}`)
     .then(res => dispatch({ type: MYGARDEN_CROPS_ADDED, data: res.data }))
     .catch(err => dispatch({ type: MYGARDEN_FAILED, data: err }));
 };

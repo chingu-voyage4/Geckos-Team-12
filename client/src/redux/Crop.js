@@ -9,7 +9,7 @@ export const getCrop = id => dispatch => {
   //fetch crop from DB
   dispatch({ type: CROP_LOADING });
   return axios
-    .get(`http://localhost:5000/crops/${id}`)
+    .get(`/crops/${id}`)
     .then(res => dispatch({ type: CROP_FETCHED, data: res.data }))
     .catch(err => dispatch({ type: CROP_FAILED, data: err }));
 };

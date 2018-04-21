@@ -10,7 +10,7 @@ export const getCrops = () => dispatch => {
   dispatch({ type: CROPS_LOADING });
 
   return axios
-    .get(`http://localhost:5000/crops`)
+    .get(`/crops`)
     .then(res => dispatch({ type: CROPS_FETCHED, data: res.data }))
     .catch(err => dispatch({ type: CROPS_FAILED, data: err }));
 };
