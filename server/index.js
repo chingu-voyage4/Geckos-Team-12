@@ -53,7 +53,7 @@ app.use("/crops", crop);
 app.use("/tasks", requireAuth, task);
 app.use("/badges", requireAuth, badge);
 app.use("/users", requireAuth, user);
-
+app.use("/", staticFiles);
 //DB seedlings
 //seedDB();
 //Server Setup
