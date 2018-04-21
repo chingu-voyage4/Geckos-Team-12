@@ -34,7 +34,7 @@ describe("TASKS", () => {
   });
   after(done => {
     request(app)
-      .delete(`/crops/test_crop1`)
+      .delete(`/crops/${crop_id}`)
       .set("Authorization", `${token}`)
       .expect(res => {
         assert(res.status === 200);
