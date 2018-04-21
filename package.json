@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Grow anything simply",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.4"
+  },
   "scripts": {
     "install": "(cd client && npm install) && (cd server && npm install)",
     "start":
