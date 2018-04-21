@@ -5,6 +5,8 @@ const express = require("express"),
   Crop = require("../models/crop"),
   passport = require("passport"),
   requireAuth = passport.authenticate("jwt", { session: false });
+
+console.log("crops router");
 // POST action to save a new crop
 router.post("/", requireAuth, (req, res) => {
   // creates a new crop
@@ -37,8 +39,10 @@ router.post("/:id", requireAuth, (req, res) => {
 // GET action to retrieve all crops (listing)
 router.get("/", (req, res) => {
   // search database, if no errors, return listing of all crops
+  console.log("fetching crops");
   Crop.find({}, (err, crops) => {
     if (err) res.send(err);
+    console.log("crops found");
     // if no errors, retrieve listing and display to client
     res.json(crops);
   });
