@@ -27,7 +27,7 @@ export class Landing extends Component {
       <div className="landing">
         <div className="s1">
           <div className="catchy-phrase">
-            <h1>Grow anything.</h1>
+            <h1>Grow anything simply.</h1>
             <h2>SimpleSeed helps you easily grow your own organic food.</h2>
           </div>
           <div className="catchy-footer">
