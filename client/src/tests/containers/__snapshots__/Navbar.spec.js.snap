@@ -34,17 +34,18 @@ exports[`Navbar should render 1`] = `
     <div
       className="signin"
     >
-      <button
-        onClick={[Function]}
+      <HashLink
+        smooth={true}
+        to="/#join"
       >
-        Sign In
-      </button>
-      <Link
-        replace={false}
-        to="/signup"
+        SignIn
+      </HashLink>
+      <HashLink
+        smooth={true}
+        to="/#join"
       >
         SignUp
-      </Link>
+      </HashLink>
     </div>
   </div>
 </div>
