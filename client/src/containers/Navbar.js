@@ -6,7 +6,8 @@ import { signInUser, signOutUser } from "../redux/Auth";
 import "../assets/css/navBar.css";
 
 export class Navbar extends Component {
-  signOut = () => this.props.signOut;
+  handleSignOut = () =>
+    this.props.signOut().then(() => this.props.history.push("/landing"));
   render() {
     const { auth } = this.props;
     return (
@@ -28,8 +29,12 @@ export class Navbar extends Component {
         <div className="nav-bar-user">
           {!auth && (
             <div className="signin">
-              <HashLink to="/#join">SignIn</HashLink>
-              <HashLink to="/#join">SignUp</HashLink>
+              <HashLink smooth to="/#join">
+                SignIn
+              </HashLink>
+              <HashLink smooth to="/#join">
+                SignUp
+              </HashLink>
             </div>
           )}
           {auth && (

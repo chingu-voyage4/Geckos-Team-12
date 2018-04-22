@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "../assets/css/mygarden.css";
 class MyGarden extends Component {
+  componentWillMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <div className="mygarden">
-        <div className="mygarden-header">
+        <div className="mygarden-header" id="header">
           <div className="mygarden-header-left">
             My<span>Garden</span>
           </div>

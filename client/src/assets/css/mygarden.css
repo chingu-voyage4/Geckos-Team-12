@@ -25,8 +25,9 @@
   font-size: 400;
 }
 .mygarden-header-right span {
-  color: #5ef38c;
+  color: #250f0f;
   font-weight: 900;
+  font-size: 20px;
 }
 .mygarden-body {
   display: grid;

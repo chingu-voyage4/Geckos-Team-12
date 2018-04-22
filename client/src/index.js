@@ -12,8 +12,13 @@ import Profile from "./containers/Profile";
 import Crop from "./containers/Crop";
 import "./assets/css/index.css";
 import "./assets/css/components.css";
-const store = configureStore();
+import Cookies from "universal-cookie";
+import { AUTH_SUCCESS } from "./redux/Auth";
+const cookies = new Cookies();
 
+const store = configureStore();
+let token = cookies.get("token");
+if (token) store.dispatch({ type: AUTH_SUCCESS, data: token });
 const App = () => (
   <Router>
     <div className="app-wrapper">

@@ -6,22 +6,27 @@ import Signup from "../components/Signup";
 import { signInUser, signUpUser } from "../redux/Auth";
 
 export class Landing extends Component {
-  handleLogin = e => {
-    e.preventDefault();
+  constructor(props, context) {
+    super(props, context);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
+  }
+  handleLogin() {
     let values = this.props.form.loginForm.values;
-    console.log(values);
+    //console.log(values);
     this.props
       .signInUser(values)
-      .then(() => this.props.history.push("/mygarden"));
-  };
-  handleSignup = e => {
-    e.preventDefault();
+      .then(() => this.props.history.push("/mygarden#header"))
+      .catch(err => this.setState({ error: err }));
+  }
+  handleSignup() {
     let values = this.props.form.signupForm.values;
-    console.log(values);
+    //console.log(values);
     this.props
       .signUpUser(values)
-      .then(() => this.props.history.push("/mygarden"));
-  };
+      .then(() => this.props.history.push("/mygarden#header"))
+      .catch(err => this.setState({ error: err }));
+  }
   render() {
     return (
       <div className="landing">
@@ -125,12 +130,22 @@ export class Landing extends Component {
           <h1>Give it a try</h1>
           <div className="s4-1">
             <div className="form-title">Login</div>
-            <Login handleSubmit={this.handleLogin} />
+            <Login
+              handleSubmit={e => {
+                e.preventDefault();
+                this.handleLogin();
+              }}
+            />
           </div>
           <div className="divider" />
           <div className="s4-2">
             <div className="form-title">SignUp</div>
-            <Signup handleSubmit={this.handleSignUp} />
+            <Signup
+              handleSubmit={e => {
+                e.preventDefault();
+                this.handleSignup();
+              }}
+            />
           </div>
         </div>
       </div>

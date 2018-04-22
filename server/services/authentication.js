@@ -10,6 +10,7 @@ const tokenForUser = user => {
 };
 
 exports.signup = (req, res, next) => {
+  console.log("signing up");
   const { username, password } = req.body;
   //if form is incomplete send error
   if (!username || !password)
@@ -24,8 +25,11 @@ exports.signup = (req, res, next) => {
       return res.status(422).send({ error: "Username is in use" });
 
     //if no existing user create and save it
+    console.log("creating user");
     const user = new User({ username, password });
+    console.log("user created", user);
     user.save((err, newUser) => {
+      console.log("saving user");
       //send error if
       if (err) return next(err);
       //Send success response
