@@ -7,7 +7,7 @@ import "../assets/css/navBar.css";
 
 export class Navbar extends Component {
   handleSignOut = () =>
-    this.props.signOut().then(() => this.props.history.push("/landing"));
+    this.props.signOut().then(() => this.props.history.push("/"));
   render() {
     const { auth } = this.props;
     return (

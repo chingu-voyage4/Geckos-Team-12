@@ -1,0 +1,33 @@
+.toast: {
+  visibility: "hidden" /* Hidden by default  */;
+  max-height: "54px";
+  min-width: "250px" /* Set a default minimum width */;
+  margin-left: "-125px" /* Divide value of min-width by 2 */;
+  background-color: "#494";
+  color: "#fff" /* White text color */;
+  text-align: "center" /* Centered text */;
+  border-radius: "3px" /* Rounded borders */;
+  padding: "16px" /* Padding */;
+  position: "fixed" /* Sit on top of the screen */;
+  z-index: 103 /* Add a z-index if needed */;
+  right: "0px" /* right side the snackbar */;
+  top: "65px"; /* 100px from the Top */
+}
+.toasterror: {
+  visibility: "hidden" /* Hidden by default  */;
+  max-height: "54px";
+  min-width: "250px" /* Set a default minimum width */;
+  margin-left: "-125px" /* Divide value of min-width by 2 */;
+  background-color: "#BF211E";
+  color: "#fff" /* White text color */;
+  text-align: "center" /* Centered text */;
+  border-radius: "3px" /* Rounded borders */;
+  padding: "16px" /* Padding */;
+  position: "fixed" /* Sit on top of the screen */;
+  z-index: 103 /* Add a z-index if needed */;
+  right: "0px" /* right side the snackbar */;
+  top: "65px"; /* 100px from the Top */
+}
+.show: {
+  visibility: "visible"; /* Show the snackbar */
+}
