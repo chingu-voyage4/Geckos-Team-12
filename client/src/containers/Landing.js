@@ -121,7 +121,7 @@ export class Landing extends Component {
           </div>
         </div>
 
-        <div className="s4">
+        <div className="s4" id="join">
           <h1>Give it a try</h1>
           <div className="s4-1">
             <div className="form-title">Login</div>

@@ -1,20 +1,12 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
+import { HashLink } from "react-router-hash-link";
 import { signInUser, signOutUser } from "../redux/Auth";
 import "../assets/css/navBar.css";
 
 export class Navbar extends Component {
   signOut = () => this.props.signOut;
-  handleSignIn = () => {
-    this.props.signIn();
-    this.props.history.push("/mygarden");
-  };
-  handleSignOut = () => {
-    this.props.signOut();
-    this.props.history.push("/");
-  };
   render() {
     const { auth } = this.props;
     return (
@@ -36,9 +28,8 @@ export class Navbar extends Component {
         <div className="nav-bar-user">
           {!auth && (
             <div className="signin">
-              <button onClick={this.handleSignIn}>Sign In</button>
-              {/* <Link to="/signin">SignIn</Link> */}
-              <Link to="/signup">SignUp</Link>
+              <HashLink to="/#join">SignIn</HashLink>
+              <HashLink to="/#join">SignUp</HashLink>
             </div>
           )}
           {auth && (
